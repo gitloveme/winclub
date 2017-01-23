@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>登录</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        background-color: #fff;
+    }
+</style>
+<body>
+<div class="logo">
+    <div class="logo_tab">
+        <span class="logo_psd bluefont">账号密码登录</span>
+        <span class="logo_code">验证码登录</span>
+    </div>
+    <div style="background-color:#F0F0F2;height: 0.5rem;width: 100%"></div>
+    <dl class="regist_list regist_list2 logo_psd_show">
+        <dd><input type="number" placeholder="输入用户名" id='tel_val'></dd>
+        <dd><input type="password" placeholder="请输入密码" minlength="6" maxlength="12"></dd>
+        <div class="end_dd">
+            <div class="reg_btn reg_btn2" onClick="log_in(url_page)">登录</div>
+
+            <a href="register.html" class="regnow"><span>立即注册</span></a>
+            <a href="reset.html" class="fopsd"><span>忘记密码?</span></a>
+        </div>
+
+    </dl>
+    <dl class="regist_list regist_list2 logo_code_show">
+        <dd><input type="tel" placeholder="请输入手机号"  id="phone_val" maxlength=11>
+            <button class="buy-btn yz_btn" disabled="disabled">发送验证码</button>
+        </dd>
+
+        <dd><input type="number" placeholder="请输入验证码" id="code_val"></dd>
+
+        <div class="end_dd">
+            <div class="reg_btn reg_btn2" onClick="tologin(url_page)">登录</div>
+            <!--<a href="register.html"><span>立即注册</span></a>-->
+
+        </div>
+
+    </dl>
+</div>
+</body>
+<script src="js/jquery.js" type="text/javascript"></script>
+
+<script src="js/login.js"></script>
+
+</html>
