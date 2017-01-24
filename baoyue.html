@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>包月产品</title>
+	<link rel="stylesheet" href="css/style.css">       
+</head>  
+<body ng-app="baoyApp">
+<dl class="month_box ng-scope" ng-controller="objcontr">
+	<dt>
+		<p class="lim_txt">购买套餐更优惠，专业推荐，长跟长赢。</p>
+		<div>优先推荐</div>
+		<div>互动特权</div>
+		<div>更多优惠</div>
+	</dt>
+	<!-- ngRepeat: plan in	data --><dd ng-repeat="plan in	data" class="ng-scope">	
+		<span class="prodName hide_all ng-binding" ng-bind="plan.name">竞彩单关包次-10次</span>	
+		<span class="prodId hide_all ng-binding" ng-bind="plan.priceId">10</span>	
+		<span class="price hide_all ng-binding" ng-bind="plan.price">458.0</span>
+	   <span class="applyType hide_all ng-binding" ng-bind="plan.applyType">2</span>				
+		<span class="month_cell ng-binding">
+			<i class="hot_cell hide_b" ng-class="setStyle1(0)"><img src="images/hot.png"> </i>
+			竞彩单关包次-10次
+		</span>
+		<p class="small_let ng-binding">相当于正常购买的7.9折哦</p>
+		<span class="buy-num">￥<em class="ng-binding">458.0</em></span>
+		<span class="buy_btn up_cell7">购买</span>			
+	</dd><!-- end ngRepeat: plan in	data --><dd ng-repeat="plan in	data" class="ng-scope">	
+		<span class="prodName hide_all ng-binding" ng-bind="plan.name">竞彩单关包次-30次</span>	
+		<span class="prodId hide_all ng-binding" ng-bind="plan.priceId">11</span>	
+		<span class="price hide_all ng-binding" ng-bind="plan.price">1188.0</span>
+	   <span class="applyType hide_all ng-binding" ng-bind="plan.applyType">2</span>				
+		<span class="month_cell ng-binding">
+			<i class="hot_cell hide_b" ng-class="setStyle1(0)"><img src="images/hot.png"> </i>
+			竞彩单关包次-30次
+		</span>
+		<p class="small_let ng-binding">相当于正常购买的6.8折哦</p>
+		<span class="buy-num">￥<em class="ng-binding">1188.0</em></span>
+		<span class="buy_btn up_cell7">购买</span>			
+	</dd><!-- end ngRepeat: plan in	data --><dd ng-repeat="plan in	data" class="ng-scope">	
+		<span class="prodName hide_all ng-binding" ng-bind="plan.name">竞彩单关包次-50次</span>	
+		<span class="prodId hide_all ng-binding" ng-bind="plan.priceId">12</span>	
+		<span class="price hide_all ng-binding" ng-bind="plan.price">1788.0</span>
+	   <span class="applyType hide_all ng-binding" ng-bind="plan.applyType">2</span>				
+		<span class="month_cell ng-binding">
+			<i class="hot_cell hide_b" ng-class="setStyle1(0)"><img src="images/hot.png"> </i>
+			竞彩单关包次-50次
+		</span>
+		<p class="small_let ng-binding">相当于正常购买的6.2折哦</p>
+		<span class="buy-num">￥<em class="ng-binding">1788.0</em></span>
+		<span class="buy_btn up_cell7">购买</span>			
+	</dd><!-- end ngRepeat: plan in	data --><dd ng-repeat="plan in	data" class="ng-scope">	
+		<span class="prodName hide_all ng-binding" ng-bind="plan.name">亚盘大小球包次-10次</span>	
+		<span class="prodId hide_all ng-binding" ng-bind="plan.priceId">13</span>	
+		<span class="price hide_all ng-binding" ng-bind="plan.price">688.0</span>
+	   <span class="applyType hide_all ng-binding" ng-bind="plan.applyType">2</span>				
+		<span class="month_cell ng-binding">
+			<i class="hot_cell hide_b" ng-class="setStyle1(0)"><img src="images/hot.png"> </i>
+			亚盘大小球包次-10次
+		</span>
+		<p class="small_let ng-binding">相当于正常购买的7.8折哦</p>
+		<span class="buy-num">￥<em class="ng-binding">688.0</em></span>
+		<span class="buy_btn up_cell7">购买</span>			
+	</dd><!-- end ngRepeat: plan in	data --><dd ng-repeat="plan in	data" class="ng-scope">	
+		<span class="prodName hide_all ng-binding" ng-bind="plan.name">亚盘大小球包次-30次</span>	
+		<span class="prodId hide_all ng-binding" ng-bind="plan.priceId">14</span>	
+		<span class="price hide_all ng-binding" ng-bind="plan.price">1788.0</span>
+	   <span class="applyType hide_all ng-binding" ng-bind="plan.applyType">2</span>				
+		<span class="month_cell ng-binding">
+			<i class="hot_cell hide_b" ng-class="setStyle1(0)"><img src="images/hot.png"> </i>
+			亚盘大小球包次-30次
+		</span>
+		<p class="small_let ng-binding">相当于正常购买的6.8折哦</p>
+		<span class="buy-num">￥<em class="ng-binding">1788.0</em></span>
+		<span class="buy_btn up_cell7">购买</span>			
+	</dd><!-- end ngRepeat: plan in	data --><dd ng-repeat="plan in	data" class="ng-scope">	
+		<span class="prodName hide_all ng-binding" ng-bind="plan.name">亚盘大小球包次-50次</span>	
+		<span class="prodId hide_all ng-binding" ng-bind="plan.priceId">15</span>	
+		<span class="price hide_all ng-binding" ng-bind="plan.price">2688.0</span>
+	   <span class="applyType hide_all ng-binding" ng-bind="plan.applyType">2</span>				
+		<span class="month_cell ng-binding">
+			<i class="hot_cell hide_b" ng-class="setStyle1(0)"><img src="images/hot.png"> </i>
+			亚盘大小球包次-50次
+		</span>
+		<p class="small_let ng-binding">相当于正常购买的6.1折哦</p>
+		<span class="buy-num">￥<em class="ng-binding">2688.0</em></span>
+		<span class="buy_btn up_cell7">购买</span>			
+	</dd><!-- end ngRepeat: plan in	data -->
+	<a href="product-intro.html"><span class="cp_intr">产品说明</span></a>
+</dl>
+<input type='hidden' id='payUrl' name='payUrl' value='' />
+</body>
+<script src="js/jquery.js" type="text/javascript"></script>
+<!--<script src="js/angular.min.js" type="text/javascript"></script>
+<script src="dist/tripledes2.min.js"></script>
+<script src="dist/cipher-core.min.js"></script>
+<script src="dist/core.min.js"></script>
+<script src="dist/mode-ecb.min.js"></script>
+<script src="dist/md5.min.js"></script>
+<script src="dist/Base64.min.js"></script>
+<script src="dist/json2.min.js"></script>
+<script src="dist/jiami.min.js"></script>
+<script src="dist/jquery.md5.min.js"></script>
+<script src="dist/baseUtils.min.js" type="text/javascript"></script>-->
+<script src="js/baoyue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	//获取登录用户信息
+	var loginUserId = getLoginUserId();
+	var expertInfo=sessionStorage.getItem('expertInfo');
+	var info = jQuery.parseJSON(expertInfo);
+	var expertUserId =info.userId;
+	var expertUserName =info.nickName;
+
+	if(loginUserId==""){
+		alert('请先登录');
+		var jumpURL ="baoyue.html?planId="+planId;
+		goLoginPage(jumpURL);
+	}
+	<!--微信公众号支付-->
+	$(document).ready(function(){
+		  //设置微信支付请求参数
+		  var requestType='weixinPayOauth2';
+		  var body=new Object;
+		  body.orderType='2';    //订单类型 1-充值 2-购买 
+		  var obj=initRequestParam(requestType,body);           
+		  var url=weixinUrl+'pay/weixinPayOauth2';       
+		  //获取微信oauth2认证URI
+		  crossDomainAjaxRequest(url,obj.token,obj.encParam,obj.signParam,successFunction);         
+	});
+	  //设置支付按钮认证URI
+	function	successFunction(authUrl){
+		   $("#payUrl").val(authUrl);   	 
+   }
+
+</script>
+</html>

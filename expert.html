@@ -1,0 +1,1417 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>专家详情</title>
+<link rel="stylesheet" href="css/style.css"> 
+<style>
+.cap_cont span, .star_box {
+	float: right;
+	line-height: 22px;
+	position: absolute;
+	top: 1rem;
+	right: 1px;
+}
+
+.temporary {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+	position: relative;
+	top: 0;
+	right: 0;
+}
+
+.color-gray {
+	color: #787878;
+}
+
+.tj_lim {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 10rem;
+}
+
+.data_no {
+	display: none;
+}
+</style>
+ 
+</head>
+
+<body>
+<div ng-controller="expertInfoContr" class="ng-scope">
+    <section class="expert_intr add_up">
+        <div class="ball_detail">
+            <input id="expertUserId" type="hidden" value="89d6bd687e9c4f95a73afbccdb0801cc">
+            <input id="expertNickName" type="hidden" value="陈亦明">
+            <div class="ball_time expert-bar">
+                <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
+            </div>
+            <p class="expert_name"><em class="ng-binding">陈亦明</em>
+                <mark class="ng-binding">高级专家</mark>
+            </p><p><span id="focus_status" class="expert_gz"><i id="isFocusedStatusName">+关注</i></span></p>
+            <p class="ball_case"><em>总推荐数 : </em><span class="ml_current ng-binding"> 722</span></p>
+            <p class="ball_case"><em>粉丝 : </em><span class="ml_current ng-binding"> 316</span></p>
+        </div>
+        <p class="intr_cont2 ng-binding"><span>专家介绍 : </span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>
+        <div class="care_box">
+            <a href="baoyue.html">包月更优惠</a>
+        </div>
+        <!--<div class="togg_btn"></div>-->
+    </section>
+
+    <div>
+        <ul class="score-box">
+            <p class="race_titl">状态走势</p>
+            <!-- 竞彩走势状态 -->
+            <!-- 竞彩单关 -->
+            <li id="danguanzoushi" class="match_box">
+                <p class="data_cell">最新竞彩单关数据 </p>
+                <!-- 3天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <span class="ng-binding">80.0 %</span>
+                    <p class="limt_tc"><span class="ng-binding">近5场:5中4</span></p>
+                </div>
+                <!-- 7天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <span class="ng-binding">68.75 %</span>
+                    <p class="limt_tc"><span class="ng-binding">近7天:32中22</span></p>
+                </div>
+                <!-- 30天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <p><span class="ng-binding">68.7 %</span></p>
+                    <p class="limt_tc"><span class="ng-binding">近30天:115中79</span></p>
+                </div>
+            </li>
+            <!-- 竞彩串关 -->
+            <li id="chuanguanzoushi" class="match_box">
+                <p class="data_cell">最新竞彩串关数据 </p>
+                <!-- 3天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <span class="ng-binding">0.0 %</span>
+                    <p class="limt_tc"><span class="ng-binding">近3天:0中0</span></p>
+                </div>
+                <!-- 7天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <span class="ng-binding">0.0 %</span>
+                    <p class="limt_tc"><span class="ng-binding">近7天:0中0</span></p>
+                </div>
+                <!-- 30天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <p><span class="ng-binding">26.67 %</span></p>
+                    <p class="limt_tc"><span class="ng-binding">近30天:15中4</span></p>
+                </div>
+            </li>
+            <!-- 亚盘 -->
+            <li id="chuanguanzoushi" class="match_box">
+                <p class="data_cell">最新亚盘数据 </p>
+                <!-- 3天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <span class="ng-binding">0.0 %</span>
+                    <p class="limt_tc"><span class="ng-binding">近3天:0中0</span></p>
+                </div>
+                <!-- 7天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <span class="ng-binding">0.0 %</span>
+                    <p class="limt_tc"><span class="ng-binding">近7天:0中0</span></p>
+                </div>
+                <!-- 30天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <p><span class="ng-binding">38.46 %</span></p>
+                    <p class="limt_tc"><span class="ng-binding">近30天:13中5</span></p>
+                </div>
+            </li>
+            <!-- 大小球 -->
+            <li id="chuanguanzoushi" class="match_box">
+                <p class="data_cell">最新大小球数据 </p>
+                <!-- 3天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <span class="ng-binding">0.0 %</span>
+                    <p class="limt_tc"><span class="ng-binding">近3天:0中0</span></p>
+                </div>
+                <!-- 7天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <span class="ng-binding">0.0 %</span>
+                    <p class="limt_tc"><span class="ng-binding">近7天:0中0</span></p>
+                </div>
+                <!-- 30天情况 -->
+                <div>
+                    <p class="limt_bm">命中率:</p>
+                    <p><span class="ng-binding">0.0 %</span></p>
+                    <p class="limt_tc"><span class="ng-binding">近30天:0中0</span></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <ul class="ball-obj">
+        <li class="current_tab" ng-click="count">竞彩单关
+            <small class="goods_txt" style="display: inline;"></small>
+        </li>
+        <li ng-click="count">竞彩串关
+            <small class="goods_txt"></small>
+        </li>
+        <li ng-click="count">亚盘
+            <small class="goods_txt"></small>
+        </li>
+        <li ng-click="count">大小球
+            <small class="goods_txt"></small>
+        </li>
+    </ul>
+
+    <ul class="score_tab" id="catch_data">
+        <!-- 单关 -->
+
+        <li id="app1div" ng-app="myApp1" ng-controller="app1Ctrl" class="ng-scope">
+            <div infinite-scroll="demo.nextPage()" infinite-scroll-disabled="demo.busy" infinite-scroll-distance="1">
+                <!--<i ng-show="isShow"><img src="images/jrw.png"></i>-->
+                <!-- ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">西国王杯</em>
+                    <p class="ng-binding">周二003</p>
+                    <p class="ng-binding">01-25 02:15</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">阿拉维斯 VS 阿科尔孔</strong> <span class="star_box ">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：国王杯！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-24 07:23</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_1">购买</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">意大利杯</em>
+                    <p class="ng-binding">周二016</p>
+                    <p class="ng-binding">01-25 03:45</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">那不勒斯 VS 佛罗伦萨</strong> <span class="star_box ">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：意大利杯推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-24 07:20</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_1">购买</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">法联赛杯</em>
+                    <p class="ng-binding">周二019</p>
+                    <p class="ng-binding">01-25 04:00</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">波尔多 VS 巴黎圣曼</strong> <span class="star_box ">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：法国联赛杯！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-24 07:21</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_1">购买</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">葡超</em>
+                    <p class="ng-binding">周一005</p>
+                    <p class="ng-binding">01-24 04:00</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">沙维什 VS 葡国民</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：葡超推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-23 16:49</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">法乙</em>
+                    <p class="ng-binding">周一004</p>
+                    <p class="ng-binding">01-24 03:45</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">布雷斯特 VS 圣旺红星</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：法乙推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-23 16:50</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_4">输</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">荷乙</em>
+                    <p class="ng-binding">周一001</p>
+                    <p class="ng-binding">01-24 03:00</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">阿贾青年 VS 阿尔梅勒</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：荷乙推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-23 16:52</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_2">已停售</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">英超</em>
+                    <p class="ng-binding">周日025</p>
+                    <p class="ng-binding">01-23 00:30</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">切尔西 VS 赫尔城</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-22 10:13</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">西甲</em>
+                    <p class="ng-binding">周日020</p>
+                    <p class="ng-binding">01-22 23:15</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">毕尔巴鄂 VS 马竞</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：西甲推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-22 10:11</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">德甲</em>
+                    <p class="ng-binding">周日018</p>
+                    <p class="ng-binding">01-22 22:30</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">勒沃库森 VS 柏林赫塔</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：德甲推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-22 10:10</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">英超</em>
+                    <p class="ng-binding">周日017</p>
+                    <p class="ng-binding">01-22 22:15</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">阿森纳 VS 伯恩利</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-22 10:12</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_4">输</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">意甲</em>
+                    <p class="ng-binding">周日015</p>
+                    <p class="ng-binding">01-22 22:00</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">巴勒莫 VS 国际米兰</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：意甲推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-22 10:08</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">意甲</em>
+                    <p class="ng-binding">周日013</p>
+                    <p class="ng-binding">01-22 22:00</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">热那亚 VS 克罗托内</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：意甲推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-22 10:07</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_4">输</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">英超</em>
+                    <p class="ng-binding">周日005</p>
+                    <p class="ng-binding">01-22 20:00</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">南安普敦 VS 莱切斯特</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-22 10:06</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_4">输</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">意甲</em>
+                    <p class="ng-binding">周日003</p>
+                    <p class="ng-binding">01-22 19:30</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">尤文图斯 VS 拉齐奥</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：意甲焦点战！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-22 10:05</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">西甲</em>
+                    <p class="ng-binding">周日002</p>
+                    <p class="ng-binding">01-22 19:00</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">奥萨苏纳 VS 塞维利亚</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：西甲早场！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-22 10:03</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">意甲</em>
+                    <p class="ng-binding">周六068</p>
+                    <p class="ng-binding">01-22 03:45</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">AC米兰 VS 那不勒斯</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：意甲焦点战！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-21 07:54</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_4">输</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">德甲</em>
+                    <p class="ng-binding">周六052</p>
+                    <p class="ng-binding">01-22 01:30</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">莱红牛 VS 法兰克福</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：德甲推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-21 07:53</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">英超</em>
+                    <p class="ng-binding">周六050</p>
+                    <p class="ng-binding">01-22 01:30</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">曼城 VS 热刺</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-21 07:52</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">西甲</em>
+                    <p class="ng-binding">周六044</p>
+                    <p class="ng-binding">01-21 23:15</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">皇马 VS 马拉加</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：西甲推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-21 07:51</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">英超</em>
+                    <p class="ng-binding">周六016</p>
+                    <p class="ng-binding">01-21 23:00</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">斯托克城 VS 曼联</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-21 07:49</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_4">输</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">德甲</em>
+                    <p class="ng-binding">周六012</p>
+                    <p class="ng-binding">01-21 22:30</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">不来梅 VS 多特蒙德</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：德甲推荐！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-21 07:48</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">英超</em>
+                    <p class="ng-binding">周六004</p>
+                    <p class="ng-binding">01-21 20:30</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">利物浦 VS 斯旺西</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超亚盘！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-21 07:47</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_4">输</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+
+
+                    <p>
+                        <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                            </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                                <div class="ball_time ball_time2">
+                                    <em class="ng-binding">法甲</em>
+                    <p class="ng-binding">周五025</p>
+                    <p class="ng-binding">01-21 03:45</p>
+
+
+                </div>
+                <p><strong class="main_race ng-binding">巴斯蒂亚 VS 尼斯</strong> <span class="star_box hide_a">58.00元</span></p>
+                <p class="ball_case color-gray">类型:
+                    <span class="ng-binding">竞彩单关</span>
+                </p>
+                <p class="intr_lim color-gray tj_lim ng-binding">推荐语：法甲单关！ </p>
+                <p>
+                    <small class="color-gray ng-binding">01-20 11:48</small>
+                </p>
+            </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+            <span class="proj_3">赢</span>
+            </a>
+            <p></p>
+</div><!-- end ngRepeat: dan in demo.items -->
+<div ng-show="demo.busy" class="loading_no ng-hide" style="text-align: center;color: #333333">暂无更多</div>
+<!--<div class="data_no"><img src="images/bill.png" style="width: 100%"></div>-->
+</div>
+</li>
+
+<!-- 串关 -->
+<li id="app2div" ng-app="myApp2" ng-controller="app2Ctrl" class="ng-scope">
+    <div infinite-scroll="demo.nextPage()" infinite-scroll-disabled="demo.busy" infinite-scroll-distance="1">
+        <!-- ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">非洲杯</em>
+            <p class="ng-binding">周六038</p>
+            <p class="ng-binding">01-15 00:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">加蓬 VS 几内亚比</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-14 09:09</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">荷乙</em>
+            <p class="ng-binding">周五019</p>
+            <p class="ng-binding">01-14 03:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">特尔斯达 VS 瓦尔韦克</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-13 10:08</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">意大利杯</em>
+            <p class="ng-binding">周四007</p>
+            <p class="ng-binding">01-13 02:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">AC米兰 VS 都灵</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-12 11:29</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">西国王杯</em>
+            <p class="ng-binding">周三005</p>
+            <p class="ng-binding">01-12 00:30</p>
+        </div>
+        <p><strong class="main_race ng-binding">阿拉维斯 VS 拉科</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：杯赛二串一 </p>
+        <p>
+            <small class="color-gray ng-binding">01-11 10:12</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_3">赢</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英锦赛</em>
+            <p class="ng-binding">周二007</p>
+            <p class="ng-binding">01-11 03:45</p>
+        </div>
+        <p><strong class="main_race ng-binding">牛津联 VS 斯肯索普</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一 </p>
+        <p>
+            <small class="color-gray ng-binding">01-10 11:05</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_3">赢</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">西甲</em>
+            <p class="ng-binding">周日030</p>
+            <p class="ng-binding">01-09 01:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">比利亚雷 VS 巴塞罗那</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-08 09:45</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英足总杯</em>
+            <p class="ng-binding">周六024</p>
+            <p class="ng-binding">01-07 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">布城 VS 福利特</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：足总杯二串一！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-07 09:31</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英足总杯</em>
+            <p class="ng-binding">周五005</p>
+            <p class="ng-binding">01-07 03:45</p>
+        </div>
+        <p><strong class="main_race ng-binding">西汉姆联 VS 曼城</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：周五串关 </p>
+        <p>
+            <small class="color-gray ng-binding">01-06 14:48</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">葡联赛杯</em>
+            <p class="ng-binding">周三006</p>
+            <p class="ng-binding">01-05 02:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">塞图巴尔 VS 里斯本</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-04 09:43</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">西国王杯</em>
+            <p class="ng-binding">周二009</p>
+            <p class="ng-binding">01-04 04:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">拉科 VS 阿拉维斯</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一推荐！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-03 10:13</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_3">赢</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英冠</em>
+            <p class="ng-binding">周一014</p>
+            <p class="ng-binding">01-02 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">诺丁汉 VS 巴恩斯利</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-02 10:01</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding">周日004</p>
+            <p class="ng-binding">01-01 21:30</p>
+        </div>
+        <p><strong class="main_race ng-binding">沃特福德 VS 热刺</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-01 09:38</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英甲</em>
+            <p class="ng-binding">周六022</p>
+            <p class="ng-binding">12-31 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">福利特 VS 奥德汉姆</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-31 09:53</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_3">赢</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英甲</em>
+            <p class="ng-binding">周五006</p>
+            <p class="ng-binding">12-31 03:45</p>
+        </div>
+        <p><strong class="main_race ng-binding">米尔顿 VS 斯文登</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-30 09:52</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_2">已停售</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding">周三002</p>
+            <p class="ng-binding">12-29 03:45</p>
+        </div>
+        <p><strong class="main_race ng-binding">南安普敦 VS 热刺</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：二串一！！！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-28 10:25</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding">周一012</p>
+            <p class="ng-binding">12-26 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">切尔西 VS 伯恩茅斯</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">竞彩串关</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超二串一！！！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-26 13:03</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items -->
+    <div ng-show="demo.busy" class="loading_no ng-hide" style="text-align: center;color: #333333">暂无更多</div>
+    <!--<div class="data_no"><img src="images/bill.png" style="width: 100%"></div>-->
+    </div>
+</li>
+
+
+<!-- 亚盘 -->
+<li id="app3div" ng-app="myApp3" ng-controller="app3Ctrl" class="ng-scope">
+    <div infinite-scroll="demo.nextPage()" infinite-scroll-disabled="demo.busy" infinite-scroll-distance="1">
+        <!-- ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">西国王杯</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">01-05 04:15</p>
+        </div>
+        <p><strong class="main_race ng-binding">皇家马德里 VS 塞维利亚</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：亚盘！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-04 09:47</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_3">赢</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">01-05 04:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">热刺 VS 切尔西</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：亚盘 </p>
+        <p>
+            <small class="color-gray ng-binding">01-04 09:46</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_3">赢</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">01-02 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">西布罗姆维奇 VS 赫尔城</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超亚盘！！！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-02 10:03</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_3">赢</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">01-02 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">桑德兰 VS 利物浦</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：亚盘推荐！ </p>
+        <p>
+            <small class="color-gray ng-binding">01-02 10:02</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">12-31 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">南安普敦 VS 西布罗姆维奇</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：亚盘推荐！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-31 09:57</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">苏超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">12-31 20:15</p>
+        </div>
+        <p><strong class="main_race ng-binding">格拉斯哥流浪 VS 凯尔特人</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：苏超亚盘！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-31 09:56</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">澳A联</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">12-31 16:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">中央海岸水手 VS 墨尔本城</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：亚盘推荐！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-31 09:54</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">苏超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">12-29 03:45</p>
+        </div>
+        <p><strong class="main_race ng-binding">凯尔特人 VS 罗斯郡</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：苏超亚盘推荐！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-28 10:29</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">12-29 03:45</p>
+        </div>
+        <p><strong class="main_race ng-binding">南安普敦 VS 热刺</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超亚盘！！！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-28 10:27</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">12-28 01:15</p>
+        </div>
+        <p><strong class="main_race ng-binding">利物浦 VS 斯托克城</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：亚盘推荐！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-27 10:24</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_3">赢</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">12-26 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">斯旺西 VS 西汉姆联</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超亚盘！！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-26 13:12</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">12-26 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">莱切斯特城 VS 埃弗顿</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超亚盘 </p>
+        <p>
+            <small class="color-gray ng-binding">12-26 13:10</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_4">输</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items --><div ng-repeat="dan in demo.items" class="temporary ng-scope">
+            <p>
+                <a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                    </a></p><div class="ball_detail"><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+                        <div class="ball_time ball_time2">
+                            <em class="ng-binding">英超</em>
+            <p class="ng-binding"></p>
+            <p class="ng-binding">12-26 23:00</p>
+        </div>
+        <p><strong class="main_race ng-binding">阿森纳 VS 西布罗姆维奇</strong> <span class="star_box hide_a">88.00元</span></p>
+        <p class="ball_case color-gray">类型:
+            <span class="ng-binding">亚盘</span>
+        </p>
+        <p class="intr_lim color-gray tj_lim ng-binding">推荐语：英超亚盘！！ </p>
+        <p>
+            <small class="color-gray ng-binding">12-26 13:08</small>
+        </p>
+    </a></div><a ng-click="goPlanDetailPage(dan.planId,dan.planTypeName,dan.isHit,dan.isBuyPlan,dan.sellPrice,dan.isStopSale)">
+    <span class="proj_5">走</span>
+    </a>
+    <p></p>
+    </div><!-- end ngRepeat: dan in demo.items -->
+    <div ng-show="demo.busy" class="loading_no ng-hide" style="text-align: center;color: #333333">暂无更多</div>
+    </div>
+    <!--<div class="data_no"><img src="images/bill.png" style="width: 100%"></div>-->
+</li>
+<!-- 大小球 -->
+<li id="app4div" ng-app="myApp4" ng-controller="app4Ctrl" class="ng-scope">
+    <div infinite-scroll="demo.nextPage()" infinite-scroll-disabled="demo.busy" infinite-scroll-distance="1">
+        <!-- ngRepeat: dan in demo.items -->
+    <div ng-show="demo.busy" class="loading_no" style="text-align: center;color: #333333">暂无更多</div>
+    <!--<div class="data_no"><img src="images/bill.png" style="width: 100%"></div>-->
+    </div>
+</li>
+</ul>
+</div>
+<script src="js/jquery.js" type="text/javascript"></script>
+<!--<script src="js/angular.min.js" type="text/javascript"></script>
+<script src="dist/baseUtils.min.js" type="text/javascript"></script>
+<script src="dist/tripledes2.min.js"></script>
+<script src="dist/cipher-core.min.js"></script>
+<script src="dist/core.min.js"></script>
+<script src="dist/mode-ecb.min.js"></script>
+<script src="dist/md5.min.js"></script>
+<script src="dist/Base64.min.js"></script>
+<script src="dist/json2.min.js"></script>
+<script src="dist/jiami.min.js"></script>
+<script src="dist/jquery.md5.min.js"></script>
+<script src="js/swiper.min.js" type="text/javascript"></script>
+<script src="dist/log_in.min.js"></script>
+<script src="dist/index.min.js"></script>
+<script src="dist/infinite-scroll.js"></script>-->
+<script src="js/expert-intr.js"></script>
+
+</body>
+</html>
