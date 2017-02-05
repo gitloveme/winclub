@@ -1407,16 +1407,17 @@ mark {
 
 .ball-obj > li {
     float: left;
-    width: 25%;
+    width: 33%;
     text-align: center;
     padding: 10px 0;
     position: relative;
     overflow: hidden;
-}
-
-.ball-obj > li:nth-of-type(-n+3) {
     border-right: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+.ball-obj > li:last-child {
+    border-right:none;
 }
 
 .ball_thr > li {
@@ -2919,25 +2920,21 @@ mark {
     position: relative;
 }
 
-.regist_list dd:nth-of-type(1) {
+.regist_list .user {
     background: url(../images/man.png) no-repeat 16px center;
     background-color: #fff;
     background-size: 26px;
 }
 
-.regist_list dd:nth-of-type(2) {
+.regist_list .rand{background: url(../images/dun.png) no-repeat 16px center;background-color: #fff;background-size: 26px;display:flex;}
+.regist_list .randimg{height:26px;}
+.regist_list .key{
     background: url(../images/key.png) no-repeat 16px center;
     background-color: #fff;
     background-size: 26px;
 }
 
-.regist_list dd:nth-of-type(3) {
-    background: url(../images/key.png) no-repeat 16px center;
-    background-color: #fff;
-    background-size: 24px;
-}
-
-.regist_list dd:nth-of-type(4) {
+.regist_list .mail {
     background: url(../images/email.png) no-repeat 16px center;
     background-color: #fff;
     background-size: 23px;

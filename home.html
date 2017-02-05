@@ -7,23 +7,23 @@
 <link rel="stylesheet" href="css/style.css">        
 </head>
 <body>
-<section ng-controller="userInfoContr" class="ng-scope">
+<section class="ng-scope">
     <div class="user_cap">
         <div class="expert_cap">
-            <a href="per-infor.html">
-                <img id="imgfile" ng-src="">
+            <a href="home-intro.html">
+                <img src="">
             </a>
         </div>
-        <p id="expertName" class="expert_name ng-binding" ng-bind="data.nickName">用户106961</p>
+        <p>未登录</p>
         <p>
-            <small id="small" ng-bind="data.userDesc" class="ng-binding">每天盈彩多一点!</small>
+            <small>马上登录有惊喜</small>
         </p>
     </div>
     <ul class="num_log ctr_txt">
-        <li><a href><p name="focusNum" ng-bind="data.focusNum" class="ng-binding">0</p>关注</a></li>
-        <li><a href="balance.html"><p name="balance" ng-bind="data.balance" class="ng-binding">0.00</p>余额</a></li>
-        <li><a href><p name="couponNum" ng-bind="data.couponNum" class="ng-binding">0</p>优惠券</a></li>
-        <li><p name="fansNum" ng-bind="data.fansNum" class="ng-binding">0</p>粉丝</li>
+        <li><a href><p class="user_like">0</p>关注</a></li>
+        <li><a href="balance.html"><p class="user_blance">0.00</p>余额</a></li>
+        <li><a href><p class="ng-binding">0</p>优惠券</a></li>
+        <li><p class="ng-binding">0</p>粉丝</li>
     </ul>
 </section>
 <div class="help_site">
@@ -49,14 +49,89 @@
     <!--<a href="help_list.html">
         <div class="help_link"><span>帮助</span></div>
     </a>-->
-    <div class="off_btn"><span>退出</span></div>
+    <div class="off_btn btn_loginOut" style="display:none;"><span>退出</span></div>
 </div>
 <ul class="foot_nav">
     <li class="index"><a href="index.html">首页</a></li>
     <li class="recommend"><a href="recommend.html">推荐</a></li>
     <li class="score" style="display: none;"><a href="race-live.html">比分</a></li>
-    <li class="active home" onclick="log_space()"><a>我的</a></li>
+    <li class="active home"><a>我的</a></li>
 </ul>
-</body>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script>
 
+$(function (){
+    /*用户是否登录*/
+    $.ajax({
+        type:"get",
+        url:"http://h5.wingoalclub.com/inf/isUserLogin",
+        data:{},
+        dataType:"json",
+        error:function (){location.href="login.html";},
+        success:function (data){
+            if(data && data.status==200){
+                $(".btn_loginOut").show();
+            }else{
+                location.href="login.html";
+            }
+        }
+    });
+    /*获取用户信息*/
+    $.ajax({
+        type:"get",
+        url:"http://h5.wingoalclub.com/inf/userInfo",
+        data:{},
+        dataType:"json",
+        success:function (d){
+            if(d && d.status==200){
+                /*
+                {
+                    "userName":"用户名",
+                    "realName":"真实姓名"，
+                    "nickName":"昵称",
+                    "mail":"邮箱",
+                    "phone":"手机号码",
+                    "cardType":"证件类型",
+                    "cardNo":"证件号码",
+                    "sex":"性别",
+                    "address":"联系地址",
+                    "postcode":"邮编",
+                    "qq":"qq号码",
+                    "selfIntroduce":"个人简介",
+                    "winRate":"总胜率",
+                    "balances":"用户余额"
+                    }
+                 */
+                var data=d.data;
+                var userName=data.userName || "用户";
+                var nickName=data.nickName || "用户";
+                var userIntro=data.selfIntroduce || "每天赢彩多一点！";
+                var balance=data.balances;
+
+                var userIntroHtml='<div class="expert_cap"><a href="home-intro.html"><img src=""></a></div><p>'+nickName+'</p><p><small>'+userIntro+'</small></p>';
+                $(".user_cap").empty().html(userIntroHtml);
+                $(".user_blance").empty().html(balance);
+            }
+        }
+    });
+    $(".btn_loginOut").click(function (){
+        $.ajax({
+            type:"get",
+            url:"http://h5.wingoalclub.com/inf/logout",
+            data:{},
+            dataType:"json",
+            error:function (){alert("退出登录的时候出错了，请您稍后再试");},
+            success:function (data){
+                if(data && data.status==200){
+                    console.log("退出登录");
+                    location.href="http://"+location.host;
+                }else{
+                    alert("退出登录的时候出错了，请您稍后再试");
+                }
+            }
+        });
+    });
+});
+</script>
+</body>
 </html>
