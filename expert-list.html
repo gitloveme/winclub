@@ -8,21 +8,18 @@
     <link rel="stylesheet" href="css/style.css">        
 </head>
 <body  ng-app="expertApp">          
-    <ul class="add_bg2" ng-controller="listcontroller">                         
+    <ul class="add_bg2" id="allexpert">                         
         <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">89d6bd687e9c4f95a73afbccdb0801cc</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">陈亦明</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz2" ng-class="setStyle(0)"><i class="ng-binding">已关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>                             
-                </div>  
-            </div>                          
+            <div class="ball_detail list_detail">
+                <div class="ball_time expert-bar">
+                    <div class="expert_capital"><img src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
+                </div>
+                <p class="expert_name">
+                    <em>陈亦明</em><mark>高级专家</mark>
+                    <span class="fix_cord expert_gz2" ><i>已关注</i></span>
+                </p>
+                <p class="intr_cont"><span>专家介绍:</span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>                             
+            </div>                    
         </li>
         <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
             <div ng-click="goExpertDetailPage(list.userId)">
@@ -160,74 +157,72 @@
             </div>                          
         </li>
     </ul>   
-</body>
-    <script src="js/jquery.js" type="text/javascript"></script>
-    <script>
-    
-    //1.获取专家列表：
-    var expertApp = angular.module("expertApp", []);
-    expertApp.controller("listcontroller",function($scope, $http) {
-        //接口加工       
-        var object = new Object;
-        var header = createHeader(loginUserId,'getExpertList');
-        var body = new Object;
-        body.loginUserId = loginUserId;
-        //字符串加密处理：              
-        object.header = header;//此方法衔接部分见jiami.js       
-        object.body = body;
-        var encoded = JSON.stringify(object);
-        //加密字符串
-        var str = encryptByDES(encoded, encryptKey);
-        var sign = hashCode(str);
+<script src="js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function (){
+    var defaultOption={role:2,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条*/
+    var loadingSart = true;
+    var noLoadAll=true;
+    function loadAllExpert(op){
+        defaultOption=$.extend(defaultOption,op);
+        $.ajax({
+            type:"get",
+            url:"http://h5.wingoalclub.com/inf/expertRecommend",
+            data:defaultOption,
+            dataType:"json",
+            error:function (){loadingSart=true;},
+            success:function (data){
+                loadingSart=true;
+                /*data=[
+                    {"imageHref":"图片超链接地址",
+                    "imageSrc":"图片地址",
+                    "nickName":"专家昵称',
+                    "title":"标题",
+                    "begin_match_time":"开始时间",
+                    "home_team":"主场",
+                    "guest_team":"客场",
+                    "content":"内容",
+                    "create_time":"创建时间",
+                    "is_hit":"荐中状态(1:荐中 2：未荐中 3：未开奖)"
+                    "price":"价格" //price和is_hit互斥
+                    }
+                ]
+                    */
+                if(data.status==200){
+                    var list=data.data;
+                    var html='';
+                    for(var i=0;i<list.length;i++){
+                        html+='<li class="expert_intr expert_tab">';
+                            html+='<div class="ball_detail list_detail">';
+                                html+='<div class="ball_time expert-bar">';
+                                html+='<div class="expert_capital"><img src="'+list[i].imageSrc+'></div>';
+                                html+='</div>';
+                                html+='<p class="expert_name"><em>'+list[i].nickName+'</em><mark>高级专家</mark><span class="fix_cord expert_gz2" ><i>已关注</i></span></p>';
+                                /*<span class="fix_cord expert_gz" ><i>未关注</i></span>*/
+                                html+='<p class="intr_cont"><span>专家介绍:</span>'+list[i].content+'</p>';
+                            html+='</div>';
+                        html+='</li>';
+                                            
+                    }
+                    $("#allexpert").append(html);
 
-        $http({
-            method : 'POST',
-            url : portalUrl+'expert/getExpertList',
-            params : {
-                token : "",
-                jsonParams : str,
-                sign : sign,
-                requestSource : 4
-            },
-            headers : {
-                'Content-Type' : 'application/json'
-            }
-        }).success(function(response) {
-            //回调函数
-            var res0 = trim(response.retValue, 'g');
-            var ret = decryptByDES(res0, encryptKey);
-            var ret = jQuery.parseJSON(ret);
-            $scope.data = ret.body.data;
-            var list = ret.body.data;
-            $.each(list, function(i, item) {
-                if (item.isFocused == "0") {
-                    item.isFocusedName = "已关注"
-                } else if (item.isFocused == "1") {
-                    item.isFocusedName = "未关注"
-                } else if (item.isFocused == "2"){
-                    item.isFocusedName = ""
                 }
-            });
+            }
         });
-        
-        //去专家详情页
-        $scope.goExpertDetailPage = function(expertUserId){
-            window.location.href="expert-intr.html?expertUserId="+expertUserId;
-        }
-        
-        //<!-- "isFocused": "2",  --是否已关注该专家:0已关注 1未关注 2自己 -->
-        $scope.setStyle = function(args) {
-            //已关注
-            if (args == 0)
-                return 'expert_gz2';
-            //未关注
-            else if (args == 1)
-                return 'expert_gz';
-            //自己
-            else if (args == 2)
-                return '';
-        }
+    }
+    loadAllExpert();
+    
+    $(window).scroll(function (){
+        var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
+        if($(document).height() <= top-10){
+            if(loadingSart && noLoadAll){ 
+                loadingSart=false;
+                var pageNum=defaultOption.page_index+1;
+                loadPlayType({page_index:pageNum});
+            } 
+        } 
     });
-                        
-    </script> 
+});
+</script> 
+</body>
 </html>

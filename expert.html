@@ -1402,6 +1402,7 @@ $(function (){
         return null;
     }
     var expertId=getQueryString("expertid") || localStorage.getItem("expertId");
+    var defaultOption={expertId:expertId,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条,type:类型(1:北京单场  2:胜负玩法 3:竞彩玩法)*/
     function loadExpertInfo(op){
         /*var defaultOption={expertId:expertId,type:1,page_index:1,page_num:10};
         var option=$.extend(defaultOption,op);*/
@@ -1441,12 +1442,11 @@ $(function (){
     }
     function loadPlayType(op){
         loadingSart=false;
-        var defaultOption={expertId:expertId,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条,type:类型(1:北京单场  2:胜负玩法 3:竞彩玩法)*/
-        var option=$.extend(defaultOption,op);
+        defaultOption=$.extend(defaultOption,op);
         $.ajax({
             type:"get",
             url:"http://h5.wingoalclub.com/inf/expertRecommendDetail",
-            data:option,
+            data:defaultOption,
             dataType:"json",
             error:function (){loadingSart=true;},
             success:function (data){
@@ -1473,18 +1473,17 @@ $(function (){
         var t=$(this);
         t.addClass("current_tab").siblings("li").removeClass("current_tab");
         var index=t.index()+1;
-        loadPlayType({type:index});
+        loadPlayType({type:index,page_index:1});
     });
     var loadingSart = true;
     $(window).scroll(function (){
-
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
-        if($(document).height() <= top){ 
-            console.log("s");
+        if($(document).height() <= top-10){
             if(loadingSart){ 
                 loadingSart=false;
                 var index=$(".ball-obj").find(".current_tab").index()+1;
-                loadPlayType({type:index});
+                var pageNum=defaultOption.page_index+1;
+                loadPlayType({type:index,page_index:pageNum});
             } 
         } 
     });
