@@ -13,7 +13,7 @@ $(function (){
         var option=$.extend(defaultOption,op);
         $.ajax({
             type:"get",
-            url:"http://h5.wingoalclub.com/inf/expertRecommend",
+            url:"http://h5.wingoalclub.com/zucai/inf/expertRecommend",
             data:option,
             dataType:"json",
             success:function (data){
@@ -48,7 +48,7 @@ $(function (){
         var option=$.extend(defaultOption,op);
         $.ajax({
             type:"get",
-            url:"http://h5.wingoalclub.com/inf/expertRecommend",
+            url:"http://h5.wingoalclub.com/zucai/inf/expertRecommend",
             data:option,
             dataType:"json",
             success:function (data){
