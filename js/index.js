@@ -9,11 +9,7 @@ function getUserInfo(){/*获取用户登录态*/
 }
 
 $(function (){
-    var loadDom=document.getElementById("loading");
-    loadDom.setAttribute("class","outloading");
-    setTimeout(function (){
-        document.body.removeChild(loadDom);
-    },500);
+    
     function loadExpert(op){/*专家推荐*/
         var defaultOption={role:2,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条*/;
         var option=$.extend(defaultOption,op);

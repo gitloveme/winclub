@@ -6,6 +6,11 @@ function openLink(href){
 	location.href=href;
 }
 $(function (){
+    var loadDom=document.getElementById("loading");
+    loadDom.setAttribute("class","outloading");
+    setTimeout(function (){
+        document.body.removeChild(loadDom);
+    },500);
 	//判断用户是否登录
 	$.ajax({
         type:"get",
