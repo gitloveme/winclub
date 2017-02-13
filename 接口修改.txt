@@ -1,0 +1,6 @@
+修改：
+专家/高手推荐 h5.wingoalclub.com/zucai/inf/expertRecommend
+	能否在不传type类型的时候默认返回所有的专家或高手，并且返回的数据里面可以加一个字段来表示type类型
+
+获取专家信息 h5.wingoalclub.com/zucai/inf/userInfo
+	这个在获取某个专家的信息的时候是否需要传入专家id进行获取呢？

@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>全部专家</title>
-    <link rel="stylesheet" href="css/style.css">        
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>全部专家</title>
+<link rel="stylesheet" href="css/style.css">        
 </head>
-<body  ng-app="expertApp">          
-    <ul class="add_bg2" id="allexpert">                         
+<body>          
+    <ul class="add_bg2" id="allexpert"> <!--                         
         <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
             <div class="ball_detail list_detail">
                 <div class="ball_time expert-bar">
@@ -156,7 +156,7 @@
                 </div>  
             </div>                          
         </li>
-    </ul>   
+     --></ul>   
 <script src="js/jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function (){
@@ -167,38 +167,27 @@ $(function (){
         defaultOption=$.extend(defaultOption,op);
         $.ajax({
             type:"get",
-            url:"http://h5.wingoalclub.com/inf/expertRecommend",
+            url:"http://h5.wingoalclub.com/zucai/inf/expertRecommend",
             data:defaultOption,
             dataType:"json",
             error:function (){loadingSart=true;},
             success:function (data){
                 loadingSart=true;
-                /*data=[
-                    {"imageHref":"图片超链接地址",
-                    "imageSrc":"图片地址",
-                    "nickName":"专家昵称',
-                    "title":"标题",
-                    "begin_match_time":"开始时间",
-                    "home_team":"主场",
-                    "guest_team":"客场",
-                    "content":"内容",
-                    "create_time":"创建时间",
-                    "is_hit":"荐中状态(1:荐中 2：未荐中 3：未开奖)"
-                    "price":"价格" //price和is_hit互斥
-                    }
-                ]
-                    */
+                /*
+                data={"status":"200","error":null,"data":[{"imageSrc":"http://www.wingoalclub.com/dist/avatars/20161012101817-60.jpg","nickname":"杨涛","expertid":"44","recommendid":"10103","title":"巴甲  累西体育对阵克鲁塞罗","begin_match_time":"2016-11-17 07:45:00","home_team":"累西腓","guest_team":"克鲁塞罗","content":"推荐\n\n\n\n\n\n\n31","create_time":"2016-11-16 21:58:09","is_hit":"未荐中","price":"50.00"}],"records":"22","objectNode":{},"arrayNode":[]}
+
+                 */
                 if(data.status==200){
                     var list=data.data;
                     var html='';
                     for(var i=0;i<list.length;i++){
-                        html+='<li class="expert_intr expert_tab">';
+                        html+='<li class="expert_intr expert_tab" expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'">';
                             html+='<div class="ball_detail list_detail">';
                                 html+='<div class="ball_time expert-bar">';
                                 html+='<div class="expert_capital"><img src="'+list[i].imageSrc+'></div>';
                                 html+='</div>';
-                                html+='<p class="expert_name"><em>'+list[i].nickName+'</em><mark>高级专家</mark><span class="fix_cord expert_gz2" ><i>已关注</i></span></p>';
-                                /*<span class="fix_cord expert_gz" ><i>未关注</i></span>*/
+                                html+='<p class="expert_name"><em>'+list[i].nickname+'</em><mark>高级专家</mark></p>';
+                                /*<p class="expert_name"><em>专家名字</em><mark>高级专家</mark><span class="fix_cord expert_gz2" ><i>已关注</i></span><span class="fix_cord expert_gz" ><i>未关注</i></span></p>*/
                                 html+='<p class="intr_cont"><span>专家介绍:</span>'+list[i].content+'</p>';
                             html+='</div>';
                         html+='</li>';
@@ -210,6 +199,7 @@ $(function (){
             }
         });
     }
+
     loadAllExpert();
     
     $(window).scroll(function (){

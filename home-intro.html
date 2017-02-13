@@ -16,21 +16,32 @@
       <div id="ossfile"></div>
       <p>头像</p>
       </dt>
-      <dd>昵称:<i id="vnickName" class="ng-binding">用户106961</i></dd>     
+      <!-- <dd>昵称:<i id="vnickName" class="ng-binding">用户106961</i></dd>     
       <dd>个性签名：<i id="vuserDesc" class="ng-binding">每天盈彩多一点!</i></dd>
       <dd style="display: none;">专家简介：        
         <i id="vexpertIntroduction" class="ng-binding"></i>     
-      </dd>
+      </dd> -->
+      <dd>昵称：<input type="text" placeholder="昵称" value="用户106961" class="nickname"/></dd>
+      <dd>证件类型：<select class="cardtype"><option>身份证</option><option>户口簿</option><option>护照</option><option>军官证</option><option>士兵证</option><option>警官证</option><option>其他证件</option></select></dd>
+      <dd>证件号：<input type="text" placeholder="输入证件号" class="cardno"/></dd>
+      <dd>性别：<select class="sex"><option value="0">选择性别</option><option value="1">男</option><option value="2">女</option></select></dd>
+      <dd>联系地址：<input type="text" placeholder="输入地址" class="address"/></dd>
+      <dd>邮编：<input type="text" placeholder="输入邮编" class="postcode"/></dd>
+      <dd>个人简介：<textarea placeholder="输入简介" class="selfintroduce"></textarea></dd>
+
+      <!--
+      {realName：真实姓名，nickName：昵称，cardType：证件类型，cardNo：证件号，sex：性别，address：联系地址，postcode：邮编，qq：qq，selfIntroduce：个人简介}
+      -->
       <dd style="display:none;">身份证
-户口簿
-护照
-军官证
-士兵证
+
+
+
+
 港澳居民来往内地通行证
 台湾同胞来往内地通行证
 临时身份证
 外国人居留证
-警官证
+
 香港身份证
 澳门身份证
 台湾身份证
