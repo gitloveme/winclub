@@ -93,7 +93,7 @@ $(function (){
 	loadDetail();
 	$(window).scroll(function (){
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
-        if($(document).height() <= top-10){
+        if($(document).height()-10 <= top){
             if(loadingSart && noLoadAll){ 
                 loadingSart=false;
                 var pageNum=defaultOption.page_index+1;
