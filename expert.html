@@ -41,111 +41,103 @@
 </head>
 
 <body>
-<div class="ng-scope">
-    <section class="expert_intr add_up">
-        <div class="ball_detail">
-            <div class="ball_time expert-bar">
-                <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
-            </div>
-            <p class="expert_name"><em class="ng-binding">陈亦明</em>
-                <mark class="ng-binding">高级专家</mark>
-            </p><p><span id="focus_status" class="expert_gz"><i id="isFocusedStatusName">+关注</i></span></p>
-            <p class="ball_case"><em>总推荐数 : </em><span class="ml_current ng-binding"> 722</span></p>
-            <p class="ball_case"><em>粉丝 : </em><span class="ml_current ng-binding"> 316</span></p>
-        </div>
-        <p class="intr_cont2 ng-binding"><span>专家介绍 : </span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>
-        <div class="care_box">
-            <a href="baoyue.html">包月更优惠</a>
-        </div>
-        <!--<div class="togg_btn"></div>-->
-    </section>
+<div id="loading">
+    <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+    </div>
+</div>
+<div>
+<section class="expert_intr add_up">
+	<div class="ball_detail">
+		<div class="ball_time expert-bar">
+			<div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
+		</div>
+		<p class="expert_name"><em class="ng-binding">陈亦明</em>
+			<mark class="ng-binding">高级专家</mark>
+		</p><p><span id="focus_status" class="expert_gz"><i id="isFocusedStatusName">+关注</i></span></p>
+		<p class="ball_case"><em>总推荐数 : </em><span class="ml_current ng-binding"> 722</span></p>
+		<p class="ball_case"><em>粉丝 : </em><span class="ml_current ng-binding"> 316</span></p>
+	</div>
+	<p class="intr_cont2 ng-binding"><span>专家介绍 : </span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>
+	<div class="care_box">
+		<a href="baoyue.html">包月更优惠</a>
+	</div>
+	<!--<div class="togg_btn"></div>-->
+</section>
 
+<!--
     <div>
         <ul class="score-box">
             <p class="race_titl">状态走势</p>
-            <!-- 竞彩走势状态 -->
-            <!-- 竞彩单关 -->
             <li id="danguanzoushi" class="match_box">
                 <p class="data_cell">最新竞彩单关数据 </p>
-                <!-- 3天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <span class="ng-binding">80.0 %</span>
                     <p class="limt_tc"><span class="ng-binding">近5场:5中4</span></p>
                 </div>
-                <!-- 7天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <span class="ng-binding">68.75 %</span>
                     <p class="limt_tc"><span class="ng-binding">近7天:32中22</span></p>
                 </div>
-                <!-- 30天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <p><span class="ng-binding">68.7 %</span></p>
                     <p class="limt_tc"><span class="ng-binding">近30天:115中79</span></p>
                 </div>
             </li>
-            <!-- 竞彩串关 -->
             <li id="chuanguanzoushi" class="match_box">
                 <p class="data_cell">最新竞彩串关数据 </p>
-                <!-- 3天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <span class="ng-binding">0.0 %</span>
                     <p class="limt_tc"><span class="ng-binding">近3天:0中0</span></p>
                 </div>
-                <!-- 7天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <span class="ng-binding">0.0 %</span>
                     <p class="limt_tc"><span class="ng-binding">近7天:0中0</span></p>
                 </div>
-                <!-- 30天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <p><span class="ng-binding">26.67 %</span></p>
                     <p class="limt_tc"><span class="ng-binding">近30天:15中4</span></p>
                 </div>
             </li>
-            <!-- 亚盘 -->
             <li id="chuanguanzoushi" class="match_box">
                 <p class="data_cell">最新亚盘数据 </p>
-                <!-- 3天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <span class="ng-binding">0.0 %</span>
                     <p class="limt_tc"><span class="ng-binding">近3天:0中0</span></p>
                 </div>
-                <!-- 7天情况 -->
+                 7天情况 
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <span class="ng-binding">0.0 %</span>
                     <p class="limt_tc"><span class="ng-binding">近7天:0中0</span></p>
                 </div>
-                <!-- 30天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <p><span class="ng-binding">38.46 %</span></p>
                     <p class="limt_tc"><span class="ng-binding">近30天:13中5</span></p>
                 </div>
             </li>
-            <!-- 大小球 -->
             <li id="chuanguanzoushi" class="match_box">
                 <p class="data_cell">最新大小球数据 </p>
-                <!-- 3天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <span class="ng-binding">0.0 %</span>
                     <p class="limt_tc"><span class="ng-binding">近3天:0中0</span></p>
                 </div>
-                <!-- 7天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <span class="ng-binding">0.0 %</span>
                     <p class="limt_tc"><span class="ng-binding">近7天:0中0</span></p>
                 </div>
-                <!-- 30天情况 -->
                 <div>
                     <p class="limt_bm">命中率:</p>
                     <p><span class="ng-binding">0.0 %</span></p>
@@ -154,6 +146,7 @@
             </li>
         </ul>
     </div>
+-->
     <ul class="ball-obj">
         <li class="current_tab">北京单场
             <small class="goods_txt" style="display: inline;"></small>
@@ -169,7 +162,8 @@
     <ul class="score_tab" id="catch_data">
         <!-- 单关 -->
 
-        <li id="expertsBox" class="ng-scope">
+        <li class="ng-scope">
+			<div id="expertsBox"></div>
             <!-- <div infinite-scroll="demo.nextPage()" infinite-scroll-disabled="demo.busy" infinite-scroll-distance="1">
                 <div class="temporary ng-scope">
                     <div class="ball_detail">
@@ -285,56 +279,14 @@
     </ul>
 </div>
 <script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function (){
-    function getQueryString(name) {
-        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) {
-            return unescape(r[2]);
-        }
-        return null;
-    }
     var expertId=getQueryString("expertid") || localStorage.getItem("expertId");
-    var defaultOption={expertId:expertId,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条,type:类型(1:北京单场  2:胜负玩法 3:竞彩玩法)*/
-    function loadExpertInfo(op){
-        /*var defaultOption={expertId:expertId,type:1,page_index:1,page_num:10};
-        var option=$.extend(defaultOption,op);*/
-        $.ajax({
-            type:"get",
-            url:"http://h5.wingoalclub.com/inf/userInfo",
-            data:{expertId:expertId},
-            dataType:"json",
-            success:function (data){
-                /*data={
-                    "userName":"用户名",
-                    "realName":"真实姓名"，
-                    "nickName":"昵称",
-                    "mail":"邮箱",
-                    "phone":"手机号码",
-                    "cardType":"证件类型",
-                    "cardNo":"证件号码",
-                    "sex":"性别",
-                    "address":"联系地址",
-                    "postcode":"邮编",
-                    "qq":"qq号码",
-                    "selfIntroduce":"个人简介",
-                    "winRate":"总胜率",
-                    "balances":"用户余额"
-                    }
-                    */
-                if(data.status==200){
-                    var list=data.data;
-                    var experthtml="";
-                    for(var i=0;i<list.length;i++){
-                        experthtml+='<li class="commen_per ng-scope"><div class="js_cell"><img src="'+list[i].imageSrc+'"></div><span class="name_hut">'+list[i].nickName+'</span></li>';
-                    }
-                    $("#experts").empty().html(experthtml);
-                }
-            }
-        });
-    }
-    function loadPlayType(op){
+    var defaultOption={expertid:expertId,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条,type:类型(1:北京单场  2:胜负玩法 3:竞彩玩法)*/
+    var loadingSart = true;
+    var thisTypeLoad=true;
+    function loadPlayType(op,change){
         loadingSart=false;
         defaultOption=$.extend(defaultOption,op);
         $.ajax({
@@ -344,80 +296,107 @@ $(function (){
             dataType:"json",
             error:function (){loadingSart=true;},
             success:function (data){
-                /*
-                data={"status":"200","error":null,"data":[{"title":"巴甲  累西体育对阵克鲁塞罗","begin_match_time":"2016-11-17 07:45:00","home_team":"累西腓","guest_team":"克鲁塞罗","create_time":"2016-11-16 21:58:09","is_hit":"未荐中","price":"50.00","match_group":"巴西甲"}],"records":"null","objectNode":{},"arrayNode":[]}
-                "is_hit":"荐中状态(1:荐中 2：未荐中 3：未开奖)"
-                 */
                 loadingSart=true;
                 if(data.status==200){
                     var list=data.data;
-                    var typeName=["北京单场","北京单场","胜负玩法","竞彩玩法"];
-                    var recommendhtml='';
-                    for(var i=0;i<list.length;i++){
-                        var type=option.type || 1;
 
-                        if(list[i].is_hit){
-                            recommendhtml+='<div class="temporary ng-scope">';
+                    var typeName=["北京单场","北京单场","胜负玩法","竞彩玩法"];
+                    var weekday=["周日","周一","周二","周三","周四","周五","周六"];
+                    var recommendhtml='';
+                     if(list==null || list.length==0){
+                        recommendhtml='<li class="nothing">没有更多数据啦</li>';
+                        thisTypeLoad=false;
+                    }else{
+                        for(var i=0;i<list.length;i++){
+                            var type=defaultOption.type || 1;
+                            var overdate=list[i].begin_match_time?list[i].begin_match_time.substring(5,16) : "时间未知";
+                            var createdate=list[i].create_time.substring(5,16) || "";
+                            var date=new Date(list[i].begin_match_time);
+                            var day=weekday[date.getDay()];
+                            var title=list[i].title || "对阵双方描述";
+                            var group=list[i].match_group || "小组";
+                            var V=list[i].home_team || "主场";
+                            var S=list[i].guest_team || "客场";
+                            recommendhtml+='<div class="temporary">';
                                 recommendhtml+='<div class="ball_detail">';
                                     recommendhtml+='<a>';
                                         recommendhtml+='<div class="ball_time ball_time2">';
-                                            recommendhtml+='<em class="ng-binding">西国王杯</em>';
-                                            recommendhtml+='<p class="ng-binding">周二003</p>';
-                                            recommendhtml+='<p class="ng-binding">01-25 02:15</p>';
+                                            recommendhtml+='<em>'+group+'</em>';
+                                            recommendhtml+='<p>'+day+'</p>';
+                                            recommendhtml+='<p>'+overdate+'</p>';
                                         recommendhtml+='</div>';
-                                        recommendhtml+='<p><strong class="main_race ng-binding">阿拉维斯 VS 阿科尔孔</strong></p>';
-                                        recommendhtml+='<p class="ball_case color-gray">类型:<span class="ng-binding">竞彩单关</span></p>';
-                                        recommendhtml+='<p class="intr_lim color-gray tj_lim ng-binding">推荐语：国王杯！ </p>';
-                                        recommendhtml+='<p><small class="color-gray ng-binding">01-24 07:23</small></p>';
+                                        list[i].is_hit?recommendhtml+='<p><strong class="main_race">'+V+" VS "+S+'</strong></p>':recommendhtml+='<p><strong class="main_race">'+V+" VS "+S+'</strong><span class="star_box ">'+list[i].price+'元</span></p>';
+                                        recommendhtml+='<p class="ball_case color-gray">类型:<span>'+typeName[defaultOption.type]+'</span></p>';
+                                        recommendhtml+='<p class="intr_lim color-gray tj_lim ng-binding">推荐语：'+title+'</p>';
+                                        recommendhtml+='<p><small class="color-gray ng-binding">'+createdate+'</small></p>';
                                     recommendhtml+='</a>';
                                 recommendhtml+='</div>';
-                                recommendhtml+='<a><span class="proj_2">已停售</span></a>';
-                                //<span class="proj_3">赢</span>
-                                //<span class="proj_4">输</span>
-                                //<span class="proj_5">走</span>
-                            recommendhtml+='</div>';  
-                            
-                        }else{
-                            recommendhtml+='<div class="temporary ng-scope">';
-                                recommendhtml+='<div class="ball_detail">';
-                                    recommendhtml+='<a>';
-                                        recommendhtml+='<div class="ball_time ball_time2">';
-                                            recommendhtml+='<em class="ng-binding">西国王杯</em>';
-                                            recommendhtml+='<p class="ng-binding">周二003</p>';
-                                            recommendhtml+='<p class="ng-binding">01-25 02:15</p>';
-                                        recommendhtml+='</div>';
-                                        recommendhtml+='<p><strong class="main_race ng-binding">阿拉维斯 VS 阿科尔孔</strong> <span class="star_box ">58.00元</span></p>';
-                                        recommendhtml+='<p class="ball_case color-gray">类型:<span class="ng-binding">竞彩单关</span></p>';
-                                        recommendhtml+='<p class="intr_lim color-gray tj_lim ng-binding">推荐语：国王杯！ </p>';
-                                        recommendhtml+='<p><small class="color-gray ng-binding">01-24 07:23</small></p>';
-                                    recommendhtml+='</a>';
-                                recommendhtml+='</div>';
-                                recommendhtml+='<a><span class="proj_1">购买</span></a>';
+                                if(list[i].is_hit){
+                                    // /1:荐中 2： 3：
+                                    if(list[i].is_hit=="荐中"){
+                                        recommendhtml+='<a><span class="proj_3">'+list[i].is_hit+'</span></a>';
+                                    }else if(list[i].is_hit=="未荐中"){
+                                        recommendhtml+='<a><span class="proj_4">'+list[i].is_hit+'</span></a>';
+                                    }else if(list[i].is_hit=="未开奖"){
+                                        recommendhtml+='<a><span class="proj_5">'+list[i].is_hit+'</span></a>';
+                                    }
+                                    else{
+                                        recommendhtml+='<a><span class="proj_2">'+list[i].is_hit+'</span></a>';
+                                    }
+                                }else{
+                                    recommendhtml+='<a><span class="proj_1">购买</span></a>';
+                                }
+                                
                             recommendhtml+='</div>';  
                         }
                     }
-                    var oldType=localStorage.getItem("loadType");
-                    if(oldType !=defaultOption.type){
+                   
+                    if(!change){
                         $("#expertsBox").append(recommendhtml);
                     }else{
                         $("#expertsBox").empty().html(recommendhtml);
                     }
-                    localStorage.getItem("loadType",defaultOption.type);
                 }
             }
         });
     }
     $(".ball-obj").find("li").click(function (){
         var t=$(this);
+        if(t.hasClass("current_tab")) return false;
         t.addClass("current_tab").siblings("li").removeClass("current_tab");
         var index=t.index()+1;
-        loadPlayType({type:index,page_index:1});
+        thisType=true;
+        loadPlayType({type:index,page_index:1},1);
+
     });
-    var loadingSart = true;
+	function localExpertIntro(){
+		var nickname=localStorage.getItem("expertName");
+		var picture=localStorage.getItem("expertImg");
+		var intro=localStorage.getItem("expertIntro");
+		var html='<div class="ball_detail"><div class="ball_time expert-bar"><div class="expert_capital"><img src="'+picture+'"></div></div><p class="expert_name"><em class="ng-binding">'+nickname+'</em><mark>高级专家</mark></p></div><p class="intr_cont2" style="margin-top:30px;"><span>专家介绍 : </span>'+intro+'</p>';
+		$(".expert_intr").empty().html(html);
+		/*
+		<div class="ball_detail">
+            <div class="ball_time expert-bar">
+                <div class="expert_capital"><img src=""></div>
+            </div>
+            <p class="expert_name"><em class="ng-binding">陈亦明</em>
+                <mark class="ng-binding">高级专家</mark>
+            </p><p><span id="focus_status" class="expert_gz"><i id="isFocusedStatusName">+关注</i></span></p>
+            <p class="ball_case"><em>总推荐数 : </em><span class="ml_current ng-binding"> 722</span></p>
+            <p class="ball_case"><em>粉丝 : </em><span class="ml_current ng-binding"> 316</span></p>
+        </div>
+        <p class="intr_cont2 ng-binding"><span>专家介绍 : </span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>
+		*/
+	}
+	localExpertIntro();
+    loadPlayType();
+    
+
     $(window).scroll(function (){
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
-        if($(document).height() <= top-10){
-            if(loadingSart){ 
+        if($(document).height()-10 <= top){
+            if(loadingSart && thisTypeLoad){ 
                 loadingSart=false;
                 var index=$(".ball-obj").find(".current_tab").index()+1;
                 var pageNum=defaultOption.page_index+1;

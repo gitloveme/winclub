@@ -12,7 +12,7 @@
 		<dd class="user"><input type="text" placeholder="请输入用户名" class="username"></dd>
 		<dd class="mail"><input type="mail" placeholder="请输入邮箱" class="usermail"></dd>
 		<dd class="user"><input type="number" placeholder="输入手机号" class="telnumber"></dd>
-		<dd class="rand"><input type="text" placeholder="输入验证码" class="randnuber"><img src="http://h5.wingoalclub.com/zucai/inf/authImage" tsrc="http://h5.wingoalclub.com/inf/authImage" alt="验证码" class="randimg"></dd>
+		<dd class="rand"><input type="text" placeholder="输入验证码" class="randnuber"><img src="http://h5.wingoalclub.com/zucai/inf/authImage" alt="验证码" class="randimg"></dd>
 		<dd class="key"><input type="password" placeholder="输入密码（数字，字母及下划线，6-12个字符)" minlength="6" maxlength="12" class="password"></dd>
 		<dd class="key"><input type="password" placeholder="再次输入密码" minlength="6" maxlength="12" class="re-password"></dd>
 		<div class="end_dd">
@@ -26,8 +26,9 @@
 <script type="text/javascript">
 $(function (){
 	var form=$(".regist_list");
+	var submitIng=false;
 	var telphoneReg = /(1[3-9]\d{9}$)/;
-	var mailReg=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+	var mailReg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 	function beforeSubmit(){
 		if($.trim(form.find(".username").val())==""){
 			alert("用户名不能为空！");
@@ -52,11 +53,12 @@ $(function (){
 		return true;
 	}
 	$(".randimg").click(function (){
-		var tt=new Date().getTime();
+		var time=new Date().getTime();
 		var t=$(this);
-		t.attr("src",t.attr(src)+t);
+		t.attr("src",t.attr("src")+"?t="+time);
 	});
 	$(".submit-reg").click(function (){
+		if(submitIng) return false;
 		if(beforeSubmit()){
 			var username=$.trim(form.find(".username").val());
 			var mail=$.trim(form.find(".usermail").val());
@@ -65,18 +67,21 @@ $(function (){
 
 			var phone=$.trim(form.find(".telnumber").val());
 			var verifyCode=$.trim(form.find(".randnuber").val());
+			submitIng=true;
 			$.ajax({
 				type:"get",
 				url:"http://h5.wingoalclub.com/zucai/inf/registerUser",
 				data:{username:username,mail:mail,passwd:passwd,confimPasswd:confimPasswd,phone:phone,verifyCode:verifyCode,t:new Date().getTime()},
 				dataType:"json",
-				error:function (){alert("注册出错啦！请您重试");},
+				error:function (){alert("注册出错啦！请您重试");submitIng=false;},
 				success:function (data){
+					submitIng=false;
 					if(data && data.status == 200){
 						alert("恭喜您注册成功！");
-						location.href="http://"+location.host+"/login.html";
+						location.href="login.html";
 					}else{
-						alert("注册出错啦！请您重试");
+						var errormsg=data.error || "出现未知错误";
+                        alert(errormsg);
 					}
 				}
 			});

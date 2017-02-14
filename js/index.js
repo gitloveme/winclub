@@ -19,26 +19,13 @@ $(function (){
             data:option,
             dataType:"json",
             success:function (data){
-                /*data=[
-                    {"imageHref":"图片超链接地址",
-                    "imageSrc":"图片地址",
-                    "nickName":"专家昵称',
-                    "title":"标题",
-                    "begin_match_time":"开始时间",
-                    "home_team":"主场",
-                    "guest_team":"客场",
-                    "content":"内容",
-                    "create_time":"创建时间",
-                    "is_hit":"荐中状态(1:荐中 2：未荐中 3：未开奖)"
-                    "price":"价格" //price和is_hit互斥
-                    }
-                ]
-                    */
-                if(data.status==200){
+                
+                console.log(data); 
+                if(data && data.status==200){
                     var list=data.data;
                     var experthtml="";
                     for(var i=0;i<list.length;i++){
-                        experthtml+='<li class="commen_per ng-scope" expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'"><div class="js_cell"><img src="'+list[i].imageSrc+'"></div><span class="name_hut">'+list[i].nickName+'</span></li>';
+                        experthtml+='<li class="commen_per ng-scope" expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'"><div class="js_cell"><img src="'+list[i].imageSrc+'"></div><span class="name_hut">'+list[i].nickname+'</span></li>';
                     }
                     $("#experts").empty().html(experthtml);
                 }
@@ -62,9 +49,12 @@ $(function (){
 
                      */
                     var typeName=["北京单场","北京单场","胜负玩法","竞彩玩法"];
+                    
+                    var weekday=["周日","周一","周二","周三","周四","周五","周六"];
                     for(var i=0;i<list.length;i++){
                         var type=option.type || 1;
-                        recommendhtml+='<dd class="ng-scope" expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'"><section class="expert_case"><a href="expert.html?expertid='+list[i].expertid+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont"><em class="ng-binding">'+list[i].nickname+'</em><mark class="ng-binding">高级专家</mark><span class="add_bgb"><i class="ng-binding">18中13</i></span></div></section><section class="ball_detail"><div class="ball_time"><small class="ng-binding">周一002</small><br ng-class="sethosStyle(1)"><em class="ng-binding">非洲杯</em><p id="contr_time" class="ng-binding">'+list[i].begin_match_time.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong><span class="star_box" style="position: absolute;right:10px">￥<em class="ng-binding">'+list[i].price+'</em></span></p><p class="ball_case txt_contr2"><span>类型：<a class="ng-binding">'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a  class="ng-binding">'+list[i].content+'</a></p><span class="tag ng-binding">购买</span></section></dd>';
+                        var date=new Date(list[i].begin_match_time);
+                        recommendhtml+='<dd class="ng-scope" expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'"><section class="expert_case"><a href="expert.html?expertid='+list[i].expertid+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont"><em class="ng-binding">'+list[i].nickname+'</em><mark class="ng-binding">高级专家</mark></div></section><section class="ball_detail"><div class="ball_time"><small class="ng-binding">'+weekday[date.getDay()]+'</small><p>'+list[i].begin_match_time.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong><span class="star_box" style="position: absolute;right:10px">￥<em class="ng-binding">'+list[i].price+'</em></span></p><p class="ball_case txt_contr2"><span>类型：<a class="ng-binding">'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a  class="ng-binding">'+list[i].content+'</a></p><span class="tag ng-binding">购买</span></section></dd>';
                     }
                     $("#recommendlist").empty().html(recommendhtml);
                 }
@@ -74,42 +64,4 @@ $(function (){
     loadExpert();
     loadProficient();
     
-    /*
-    <dd class="ng-scope">
-            <span class="hide_all isBuyPlan ng-binding">1</span>
-            <section class="expert_case">
-                <span class="expertId ng-binding">39db671794144693879a25328bcef687</span>
-                <span class="plan_id ng-binding">af7a9482abd94d619127e0ddae2ea0f6</span>
-                <span class="plan_id3 ng-binding">竞彩单关</span>
-                <span class="expertNickName ng-binding">黄庆</span>
-                <a href="expert.html?expertid=39db671794144693879a25328bcef687">
-                        <span class="head_cap">
-                            <img src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header_prod/Bkz4zmEjsi.jpeg">
-                        </span>
-                </a>
-                <div class="cap_cont">
-                    <em class="ng-binding">黄庆</em>
-                    <mark class="ng-binding">高级专家</mark>
-                    <span class="add_bgb">
-                        <i class="ng-binding">18中13</i>
-                      </span>
-                </div>
-            </section>
-            <section class="ball_detail">
-                <div class="ball_time">
-                    <small class="ng-binding">周一002</small>
-                    <br ng-class="sethosStyle(1)">
-                    <em class="ng-binding">非洲杯</em>
-                    <p id="contr_time" class="ng-binding">01-24 03:00</p>
-                </div>
-                <p class="span_contr">
-                    <strong><a class="ng-binding">塞内加尔</a> VS <a class="ng-binding">阿尔及利</a></strong>
-                    <span class="star_box" style="position: absolute;right:10px">￥<em class="ng-binding">58.00</em></span>
-                </p>
-                <p class="ball_case txt_contr2"><span>类型：<a class="ng-binding">竞彩单关</a></span></p>
-                <p class="ball_case txt_contr2">推荐语:<a  class="ng-binding">塞内加尔真会放水？那可是上届的仇人</a></p>
-                <span class="tag ng-binding">购买</span>
-            </section>
-        </dd>
-     */
 });

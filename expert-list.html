@@ -7,8 +7,21 @@
 <title>全部专家</title>
 <link rel="stylesheet" href="css/style.css">        
 </head>
-<body>          
-    <ul class="add_bg2" id="allexpert"> <!--                         
+<body class="bgfff">
+<div id="loading">
+    <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+    </div>
+</div>
+    <ul class="ball-obj ball_thr">
+        <li class="active">北京单场</li>
+        <li>胜负玩法</li>
+        <li>竞彩玩法</li>
+    </ul>     
+    <ul class="add_bg2" id="allexpert">
+     <!--                         
         <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
             <div class="ball_detail list_detail">
                 <div class="ball_time expert-bar">
@@ -21,149 +34,17 @@
                 <p class="intr_cont"><span>专家介绍:</span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>                             
             </div>                    
         </li>
-        <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">c2d6caefea8b4d53bda3a48a16fbe015</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">宝哥彩吧</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz" ng-class="setStyle(1)"><i class="ng-binding">未关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>足彩五要素和宝哥彩吧创始人，前腾讯彩票和足彩310主编。推荐曾多次命中500万大奖。两次采访澳彩公司，与威廉希尔、bet365等博彩公司联系密切。</p>                             
-                </div>  
-            </div>                          
-        </li>
-        <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">89d6bd687e9c4f95a73afbccdb0801cc</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">陈亦明</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz2" ng-class="setStyle(0)"><i class="ng-binding">已关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>                             
-                </div>  
-            </div>                          
-        </li>
-        <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">c2d6caefea8b4d53bda3a48a16fbe015</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">宝哥彩吧</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz" ng-class="setStyle(1)"><i class="ng-binding">未关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>足彩五要素和宝哥彩吧创始人，前腾讯彩票和足彩310主编。推荐曾多次命中500万大奖。两次采访澳彩公司，与威廉希尔、bet365等博彩公司联系密切。</p>                             
-                </div>  
-            </div>                          
-        </li>
-        <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">89d6bd687e9c4f95a73afbccdb0801cc</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">陈亦明</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz2" ng-class="setStyle(0)"><i class="ng-binding">已关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>                             
-                </div>  
-            </div>                          
-        </li>
-        <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">c2d6caefea8b4d53bda3a48a16fbe015</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">宝哥彩吧</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz" ng-class="setStyle(1)"><i class="ng-binding">未关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>足彩五要素和宝哥彩吧创始人，前腾讯彩票和足彩310主编。推荐曾多次命中500万大奖。两次采访澳彩公司，与威廉希尔、bet365等博彩公司联系密切。</p>                             
-                </div>  
-            </div>                          
-        </li>
-        <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">89d6bd687e9c4f95a73afbccdb0801cc</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">陈亦明</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz2" ng-class="setStyle(0)"><i class="ng-binding">已关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>                             
-                </div>  
-            </div>                          
-        </li>
-        <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">c2d6caefea8b4d53bda3a48a16fbe015</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">宝哥彩吧</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz" ng-class="setStyle(1)"><i class="ng-binding">未关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>足彩五要素和宝哥彩吧创始人，前腾讯彩票和足彩310主编。推荐曾多次命中500万大奖。两次采访澳彩公司，与威廉希尔、bet365等博彩公司联系密切。</p>                             
-                </div>  
-            </div>                          
-        </li>
-        <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">89d6bd687e9c4f95a73afbccdb0801cc</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">陈亦明</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz2" ng-class="setStyle(0)"><i class="ng-binding">已关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>                             
-                </div>  
-            </div>                          
-        </li>
-        <li class="expert_intr expert_tab ng-scope" ng-repeat="list in data">
-            <div ng-click="goExpertDetailPage(list.userId)">
-                <span class="expert_id hide_all ng-binding">c2d6caefea8b4d53bda3a48a16fbe015</span>
-                <div class="ball_detail list_detail">
-                    <div class="ball_time expert-bar">
-                        <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473438020691image.jpg"></div>
-                    </div>
-                    <p class="expert_name">
-                        <em class="ng-binding">宝哥彩吧</em><mark class="ng-binding">高级专家</mark>
-                        <span class="fix_cord expert_gz" ng-class="setStyle(1)"><i class="ng-binding">未关注</i></span>
-                    </p>
-                    <p class="intr_cont ng-binding"><span>专家介绍:</span>足彩五要素和宝哥彩吧创始人，前腾讯彩票和足彩310主编。推荐曾多次命中500万大奖。两次采访澳彩公司，与威廉希尔、bet365等博彩公司联系密切。</p>                             
-                </div>  
-            </div>                          
-        </li>
+
+
      --></ul>   
 <script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function (){
     var defaultOption={role:2,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条*/
     var loadingSart = true;
     var noLoadAll=true;
-    function loadAllExpert(op){
+    function loadAllExpert(op,change){
         defaultOption=$.extend(defaultOption,op);
         $.ajax({
             type:"get",
@@ -179,36 +60,58 @@ $(function (){
                  */
                 if(data.status==200){
                     var list=data.data;
+                    if(defaultOption.page_index*defaultOption.page_num >= parseInt(data.records)) {noLoadAll=false;$(window).unbind("scroll");}
                     var html='';
-                    for(var i=0;i<list.length;i++){
-                        html+='<li class="expert_intr expert_tab" expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'">';
-                            html+='<div class="ball_detail list_detail">';
-                                html+='<div class="ball_time expert-bar">';
-                                html+='<div class="expert_capital"><img src="'+list[i].imageSrc+'></div>';
+                    if(list==null || list.length==0){
+                        html='<li class="nothing">没有更多数据啦</li>'
+                    }else{
+                        for(var i=0;i<list.length;i++){
+                            html+='<li class="expert_intr expert_tab" expertid="'+list[i].expertid+'" expertimg="'+list[i].imageSrc+'" expertname="'+list[i].nickname+'" expertintro="'+list[i].content+'">';
+                                html+='<div class="ball_detail list_detail">';
+                                    html+='<div class="ball_time expert-bar">';
+                                    html+='<div class="expert_capital"><img src="'+list[i].imageSrc+'"/></div>';
+                                    html+='</div>';
+                                    html+='<p class="expert_name"><em>'+list[i].nickname+'</em><mark>高级专家</mark></p>';
+                                    /*<p class="expert_name"><em>专家名字</em><mark>高级专家</mark><span class="fix_cord expert_gz2" ><i>已关注</i></span><span class="fix_cord expert_gz" ><i>未关注</i></span></p>*/
+                                    html+='<p class="intr_cont"><span>专家介绍:</span>'+list[i].content+'</p>';
                                 html+='</div>';
-                                html+='<p class="expert_name"><em>'+list[i].nickname+'</em><mark>高级专家</mark></p>';
-                                /*<p class="expert_name"><em>专家名字</em><mark>高级专家</mark><span class="fix_cord expert_gz2" ><i>已关注</i></span><span class="fix_cord expert_gz" ><i>未关注</i></span></p>*/
-                                html+='<p class="intr_cont"><span>专家介绍:</span>'+list[i].content+'</p>';
-                            html+='</div>';
-                        html+='</li>';
-                                            
+                            html+='</li>';
+                        }
                     }
-                    $("#allexpert").append(html);
-
+                    
+                    if(!change){
+                        $("#allexpert").append(html);
+                    }else{
+                        $("#allexpert").empty().html(html);
+                    }
+                    
                 }
             }
         });
     }
 
     loadAllExpert();
-    
+    $(".ball_thr").find("li").click(function (){
+        var that=$(this);
+        if(that.hasClass("active")) return false;
+        that.addClass("active").siblings().removeClass("active");
+        loadAllExpert({page_index:1,type:that.index()+1},1);
+    });
+    $("#allexpert").on("click",".expert_intr",function (){
+		var that=$(this);
+		localStorage.setItem("expertId",that.attr("expertid"));
+		localStorage.setItem("expertImg",that.attr("expertimg"));
+		localStorage.setItem("expertName",that.attr("expertname"));
+		localStorage.setItem("expertIntro",that.attr("expertintro"));
+		location.href="expert.html?expertid="+that.attr("expertid");
+    });
     $(window).scroll(function (){
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
-        if($(document).height() <= top-10){
+        if($(document).height()-10 <= top){
             if(loadingSart && noLoadAll){ 
                 loadingSart=false;
                 var pageNum=defaultOption.page_index+1;
-                loadPlayType({page_index:pageNum});
+                loadAllExpert({page_index:pageNum});
             } 
         } 
     });

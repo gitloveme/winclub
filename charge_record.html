@@ -7,15 +7,22 @@
     <link rel="stylesheet" href="css/style.css">        
 </head>
  
-<body ng-app="acctApp">
+<body>
+<div id="loading">
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>
 <dl class="issue_box remain_last">
 	<dd class="add_gap">
-        <p>账号：18627377388</p>
-		<p>余额：88.00元</p>
-		<p>可提现余额：<em>88.00元</em></p>
+      <!-- <p>账号：18627377388</p>
+		  <p>余额：88.00元</p>
+		  <p>可提现余额：<em>88.00元</em></p> -->
 	</dd>
  </dl>
- <dl  class="issue_box remain_last" ng-controller="detailContr">
+ <dl  class="issue_box remain_last">
 	<dt class="add_bold">充值明细</dt>
    <dd>
         <p>美职-芝加哥火焰vs哥伦布机员<span>￥55.00元</span></p>
@@ -23,5 +30,13 @@
    </dd>			
 </dl>
 <script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function (){
+  var username=localStorage.getItem("username") || "";
+  var userbalance=localStorage.getItem("userbalance") || 0;
+  $(".add_gap").html('<p>用户名：<span>'+username+'</span></p><p>余额：<span class="red_txt">'+userbalance+'元</span></p>');
+});
+</script>>
 </body>
 </html>

@@ -7,56 +7,85 @@
 <link rel="stylesheet" href="css/style.css">        
 </head>
 <body>
-<dl class="issue_box remain_last">
-	<dd class="yue_hut">
+<div id="loading">
+    <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+    </div>
+</div>
+<dl class="issue_box remain_last" id="balancelist">
+	<!-- <dd class="yue_hut">
 		<p>账号：<i id="acct">12333344</i></p>
 		<p>余额：<i> <em>0.00</em>元</i></p>
 		<p>可提现金额：<i> <em>0.00</em>元</i><small>( 每月1-5日提交提现申请 )</small></p>
 	</dd>
 
 	<dt>账单明细</dt>
-		<dd ng-repeat="item in lists">
-			<p id="clev_cl">
-				<a ng-bind="item.title">摩洛哥 VS 科特迪瓦</a >
-				<span ng-class="setamountStyle({{item.accpuntType}})" ng-bind="item.amount">1234.50</span>
-			</p>
-			<time ng-bind="item.createTime">2017-1-24 11:26:52</time>
-		</dd>
+	<dd>
+		<p>
+			<a>摩洛哥 VS 科特迪瓦</a >
+			<span>1234.50</span>
+		</p>
+		<time>2017-1-24 11:26:52</time>
+	</dd> -->
 </dl>
 <script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function (){
-	var defaultOption={page_index:1,page_num:20};
+	var defaultOption={page_index:1,page_num:10};
 	var noLoadAll=true;
-	var loadingSart = true;
+	var loadingSart = false;
 	function loadDetail(op){
 		defaultOption=$.extend(defaultOption,op);
 		$.ajax({
 			type:"get",
-			url:"http://h5.wingoalclub.com/zucai/inf/accountDetail",
+			url:"http://h5.wingoalclub.com/zucai/inf/recommandList",
 			data:defaultOption,
 			dataType:"json",
 			error:function (){loadingSart = true;},
 			success:function (data){
 				loadingSart = true;
-				/*
-				{
- "time":"交易时间",
-"income":"收入金额",
-"disburse":"支出金额",
-"balance":"余额",
-"type":"交易类型"（1:充值 2：提现 3：购买 4：售卖）
-}
-
-				 */
+				
+				
 				if(data && data.status == 200){
-					var records=data.records;//总记录数
-					var list=data.data;
-					var html='';
-					var style=["未知","充值","提现","购买","售卖"];
-					for(var i=0;i<list.length;i++){
-						html+='<dd><p><a>'+style[list[i].type]+'</a><span>1234.50</span></p><time ng-bind="item.createTime">2017-1-24 11:26:52</time></dd>'
+					var records=parseInt(data.records) || 0;//总记录数
+					if(defaultOption.page_index*defaultOption.page_num >= records){
+						noLoadAll=false;
+						$(window).unbind("scroll");
+					}else{
+						noLoadAll=true;
 					}
+					var list=data.data;
+					var username=localStorage.getItem("username") || "";
+					var userbalance=localStorage.getItem("userbalance") || "0.00";
+
+					var html='<dd class="yue_hut"><p>用户名：<i id="acct">'+username+'</i></p><p>余额：<i> <em>'+userbalance+'</em>元</i></p></dd><dt>账单明细</dt>';
+					if(list==null || list.length==0){
+						html+='<dd><p class="nothing">没有更多交易记录啦</p></dd>'
+					}else{
+						for(var i=0;i<list.length;i++){
+							
+							/*
+							[
+								{"recommandId":"推荐编号",
+								"recommandTitle":"推荐标题",
+								"recommandKind":"推荐彩种",
+								"buyTime":"购买时间",
+								"buyPrice":"购买价格"
+								}
+								}
+
+							 */
+							var buyTitle=list[i].recommandTitle || "消费项目标题";
+							var buyPrice=list[i].buyPrice || "0.00";
+							var buyTime=list[i].buyTime || "消费时间";
+							html+='<dd><p><a>'+buyTitle+'</a ><span>'+buyPrice+'元</span></p><time>'+buyTime+'</time></dd>';
+						}
+					}
+					
+					$("#balancelist").append(html)
 				}
 			}
 		});
