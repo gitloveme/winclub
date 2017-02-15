@@ -25,8 +25,24 @@ function jumpExpert(that){
     localStorage.setItem("expertIntro",that.attr("expertintro"));
     location.href="expert.html?expertid="+that.attr("expertid");
 }
-function buyLotterys(){
+function buyLotterys(recommendId,payType){
+    payType=payType ||2;//默认微信支付
     console.log("购买推荐");
+    $.ajax({
+        type:"get",
+        url:"http://h5.wingoalclub.com/zucai/inf/buy",
+        data:{recommendid:recommendId,payType:payType},
+        dataType:"json",
+        error:function (){alert("购买失败")},
+        success:function (data){
+            if(data && data.status==200 && data.error == null){
+                alert("购买成功！");
+            }else{
+                var errormsg=data.error || "出现未知错误";
+                alert(errormsg);
+            }
+        }
+    });
 }
 $(function (){
     var loadDom=document.getElementById("loading");
@@ -36,18 +52,18 @@ $(function (){
     },500);
 	//判断用户是否登录
    if(localStorage.getItem("userLogin") != "login"){
-    $.ajax({
-        type:"get",
-        url:"http://h5.wingoalclub.com/zucai/inf/isUserLogin",
-        data:{},
-        dataType:"json",
-        success:function (data){
-            if(data && data.status ==200 && data.error == null){
-                console.log("用户登录");
-                localStorage.setItem("userLogin","login");
+        $.ajax({
+            type:"get",
+            url:"http://h5.wingoalclub.com/zucai/inf/isUserLogin",
+            data:{},
+            dataType:"json",
+            success:function (data){
+                if(data && data.status ==200 && data.error == null){
+                    console.log("用户登录");
+                    localStorage.setItem("userLogin","login");
+                }
             }
-        }
-    });
+        });
    }
 	
 });

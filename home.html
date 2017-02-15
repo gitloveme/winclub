@@ -94,6 +94,16 @@ $(function (){
             dataType:"json",
             success:function (d){
                 if(d && d.status==200){
+                    
+                    var data=d.data;
+                    var userName=data.userName || "用户";
+                    var userIntro=data.selfIntroduce || "每天赢彩多一点！";
+                    var balance=data.balances;
+
+                    var userIntroHtml='<div class="expert_cap"><a href="home-intro.html"><img src=""></a></div><p>'+userName+'</p><p><small>'+userIntro+'</small></p>';
+                    $(".user_cap").empty().html(userIntroHtml);
+                    $(".user_blance").empty().html(balance);
+
                     /*
                     {
                         "userName":"用户名",
@@ -112,16 +122,31 @@ $(function (){
                         "balances":"用户余额"
                         }
                      */
-                    var data=d.data;
-                    var userName=data.userName || "用户";
-                    var userIntro=data.selfIntroduce || "每天赢彩多一点！";
-                    var balance=data.balances;
+                    var realname=data.realName || "";
+                    var uesemail=data.mail || "";
+                    var userphone=data.phone || "";
+                    var usercardtype=data.cardType || "";
+                    var usercardno=data.cardNo || "";
+                    var usersex=data.sex || "";
+                    var useraddress=data.address || "";
+                    var userpostcode=data.postcode || "";
+                    var userqq=data.qq || "";
+                    var userselfIntroduce=data.selfIntroduce || "";
+                    var userwinRate=data.winRate || "";
 
-                    var userIntroHtml='<div class="expert_cap"><a href="home-intro.html"><img src=""></a></div><p>'+userName+'</p><p><small>'+userIntro+'</small></p>';
-                    $(".user_cap").empty().html(userIntroHtml);
-                    $(".user_blance").empty().html(balance);
                     localStorage.setItem("username",userName);
                     localStorage.setItem("userbalance",balance);
+                    localStorage.setItem("realname",realname);
+                    localStorage.setItem("uesemail",uesemail);
+                    localStorage.setItem("userphone",userphone);
+                    localStorage.setItem("usercardtype",usercardtype);
+                    localStorage.setItem("usercardno",usercardno);
+                    localStorage.setItem("usersex",usersex);
+                    localStorage.setItem("useraddress",useraddress);
+                    localStorage.setItem("userpostcode",userpostcode);
+                    localStorage.setItem("userqq",userqq);
+                    localStorage.setItem("userselfIntroduce",userselfIntroduce);
+                    localStorage.setItem("userwinRate",userwinRate);
 
                 }
             }
@@ -136,9 +161,10 @@ $(function (){
             dataType:"json",
             error:function (){alert("退出登录的时候出错了，请您稍后再试");},
             success:function (data){
-                if(data && data.status==200){
+                if(data && data.status==200 && data.error == null){
                     console.log("退出登录");
-                    localStorage.setItem("userLogin","logon");
+                    //localStorage.setItem("userLogin","logon");
+                    localStorage.clear();
                     location.href="http://"+location.host;
                 }else{
                     var errormsg=data.error || "出现未知错误";

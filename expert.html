@@ -267,18 +267,15 @@ $(function (){
                 loadingSart=true;
                 if(data.status==200){
                     var list=data.data;
-                    if(defaultOption.page_index*defaultOption.page_num >= parseInt(data.records)) {
-                        noLoadAll=false;
-                    }else{
-                        noLoadAll=true;
-                    }
                     var typeName=["北京单场","北京单场","胜负玩法","竞彩玩法"];
                     var weekday=["周日","周一","周二","周三","周四","周五","周六"];
                     var recommendhtml='';
                     if(list==null || list.length==0){
                         recommendhtml='<li class="nothing">没有更多数据啦</li>';
+                        noLoadAll=false;
 
                     }else{
+                        noLoadAll=true;
                         for(var i=0;i<list.length;i++){
                             var type=defaultOption.type || 1;
                             var overdate=list[i].begin_match_time?list[i].begin_match_time.substring(5,16) : "时间未知";
@@ -338,7 +335,6 @@ $(function (){
         if(t.hasClass("current_tab")) return false;
         t.addClass("current_tab").siblings("li").removeClass("current_tab");
         var index=t.index()+1;
-        thisType=true;
         loadPlayType({type:index,page_index:1},1);
 
     });
