@@ -43,7 +43,7 @@
 $(function (){
     var defaultOption={role:2,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条*/
     var loadingSart = true;
-    var noLoadAll=true;
+    var noLoadAll=false;
     function loadAllExpert(op,change){
         defaultOption=$.extend(defaultOption,op);
         $.ajax({
@@ -60,7 +60,11 @@ $(function (){
                  */
                 if(data.status==200){
                     var list=data.data;
-                    if(defaultOption.page_index*defaultOption.page_num >= parseInt(data.records)) {noLoadAll=false;$(window).unbind("scroll");}
+                    if(defaultOption.page_index*defaultOption.page_num >= parseInt(data.records)) {
+                        noLoadAll=false;
+                    }else{
+                        noLoadAll=true;
+                    }
                     var html='';
                     if(list==null || list.length==0){
                         html='<li class="nothing">没有更多数据啦</li>'
@@ -98,12 +102,7 @@ $(function (){
         loadAllExpert({page_index:1,type:that.index()+1},1);
     });
     $("#allexpert").on("click",".expert_intr",function (){
-		var that=$(this);
-		localStorage.setItem("expertId",that.attr("expertid"));
-		localStorage.setItem("expertImg",that.attr("expertimg"));
-		localStorage.setItem("expertName",that.attr("expertname"));
-		localStorage.setItem("expertIntro",that.attr("expertintro"));
-		location.href="expert.html?expertid="+that.attr("expertid");
+		jumpExpert($(this));
     });
     $(window).scroll(function (){
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 

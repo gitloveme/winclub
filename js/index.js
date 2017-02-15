@@ -25,7 +25,7 @@ $(function (){
                     var list=data.data;
                     var experthtml="";
                     for(var i=0;i<list.length;i++){
-                        experthtml+='<li class="commen_per ng-scope" expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'"><div class="js_cell"><img src="'+list[i].imageSrc+'"></div><span class="name_hut">'+list[i].nickname+'</span></li>';
+                        experthtml+='<li class="commen_per jumpexpert" expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'"  expertimg="'+list[i].imageSrc+'" expertname="'+list[i].nickname+'" expertintro="'+list[i].content+'"><div class="js_cell"><img src="'+list[i].imageSrc+'"></div><span class="name_hut">'+list[i].nickname+'</span></li>';
                     }
                     $("#experts").empty().html(experthtml);
                 }
@@ -53,8 +53,10 @@ $(function (){
                     var weekday=["周日","周一","周二","周三","周四","周五","周六"];
                     for(var i=0;i<list.length;i++){
                         var type=option.type || 1;
-                        var date=new Date(list[i].begin_match_time);
-                        recommendhtml+='<dd class="ng-scope" expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'"><section class="expert_case"><a href="expert.html?expertid='+list[i].expertid+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont"><em class="ng-binding">'+list[i].nickname+'</em><mark class="ng-binding">高级专家</mark></div></section><section class="ball_detail"><div class="ball_time"><small class="ng-binding">'+weekday[date.getDay()]+'</small><p>'+list[i].begin_match_time.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong><span class="star_box" style="position: absolute;right:10px">￥<em class="ng-binding">'+list[i].price+'</em></span></p><p class="ball_case txt_contr2"><span>类型：<a class="ng-binding">'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a  class="ng-binding">'+list[i].content+'</a></p><span class="tag ng-binding">购买</span></section></dd>';
+                        var beginTime=$.trim(list[i].begin_match_time).substring(0,10);
+                        var date=new Date(beginTime);
+                        var d=date.getDay();
+                        recommendhtml+='<dd expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'"><section class="expert_case"><a class="jumpexpert" expertid="'+list[i].expertid+'" expertimg="'+list[i].imageSrc+'" expertname="'+list[i].nickname+'" expertintro="'+list[i].content+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont"><em>'+list[i].nickname+'</em><mark>高级专家</mark></div></section><section class="ball_detail"><div class="ball_time"><small>'+weekday[d]+'</small><p>'+list[i].begin_match_time.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong><span class="star_box" style="position: absolute;right:10px">￥<em>'+list[i].price+'</em></span></p><p class="ball_case txt_contr2"><span>类型：<a>'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a>'+list[i].content+'</a></p><span class="tag">购买</span></section></dd>';
                     }
                     $("#recommendlist").empty().html(recommendhtml);
                 }
@@ -63,5 +65,8 @@ $(function (){
     }
     loadExpert();
     loadProficient();
+    $(window).on("click",".jumpexpert",function (){
+        jumpExpert($(this));
+    });
     
 });

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>方案详情</title>
+<link rel="stylesheet" href="css/style.css">        
+</head>
+<style>
+	.obj_cell2 div:nth-child(1) {
+		width: 30%;
+	}
+
+	.obj_cell2 div:nth-child(2) {
+		width:30%;
+	}
+
+	.obj_cell2 div:nth-child(3) {
+		width: 30%;
+	}
+	.adjust_w{
+		position: relative;
+		right:0;
+		top:0;
+	}
+</style>
+<body>				
+<section id="add_white" class="add_white">
+    <div class="ball_detail">
+        <div class="ball_time expert-bar">
+            <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/20170106190506953.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/20170106190506953.jpg"></div>
+        </div>
+        <p class="expert_name"><em ng-bind="plan.nickName" class="ng-binding">高水女王</em><mark ng-bind="plan.expertTypeName" class="ng-binding">高级专家</mark></p>   
+        <p><span id="focus_status" class="expert_gz2"><i id="isFocusedStatusName">已关注</i></span></p>
+    </div>          
+</section>
+<p class="titl_cell ng-binding" ng-bind="plan.planTypeName">竞彩单关</p>
+<dl class="bg_obj ng-scope" ng-repeat="race in planDetail">
+    <dd class="obj_cell obj_cell2">
+        <div>
+            <p class="aim_span ng-binding" ng-bind="race.matchTime">02-14 04:00</p>
+            <!-- <p><img ng-src="{{race.hTeamLogo}}"></p> -->
+            <a ng-bind="race.hnSimple" class="ng-binding">伯恩茅斯</a>
+        </div>
+        <div class="aim_div">
+            <p ng-bind="race.lnSimple" class="ng-binding">英超</p>
+            <small ng-bind="race.hsScore" class="ng-binding">0</small> <a ng-bind="race.sign" class="ng-binding"> : </a><small ng-bind="race.asScore" class="ng-binding">2</small>
+        </div>      
+        <div ng-bind="race.anSimple" class="ng-binding">曼城</div>
+    </dd>
+    <dd class="obj_cell add_score">
+        <div class="obj_catch">
+            <a ng-class="setsorhStyle(1)" class="hide_c">竞彩</a>
+            <a ng-class="setsorhStyle2(1)" ng-bind="plan.planTypeName" class="ng-binding hide_a">竞彩单关</a>
+            <i ng-class="setplayStyle(2)" ng-bind="race.hand" class="ng-binding hide_c">+1</i>
+        </div>
+        <div ng-class="setStyle(1)" class="color1">
+            <a ng-class="setsorhStyle(1)" class="hide_c">胜</a>
+            <a ng-class="setsorhStyle3(1)" class="hide_a">主</a>
+            <a ng-class="setsorhStyle4(1)" class="hide_a">大球</a>
+            <a ng-bind="race.shengOdds" class="ng-binding">3.35</a>
+        </div>
+        <div ng-class="setStyle(1)" class="color1">
+            <a ng-class="setsorhStyle(1)" class="hide_c">平</a>
+            <a ng-bind="race.pingOdds" class="ng-binding">3.72</a>
+        </div>
+        <div ng-class="setStyle(3)" class="color3">
+            <a ng-class="setsorhStyle(1)" class="hide_c">负</a>
+            <a ng-class="setsorhStyle3(1)" class="hide_a">客</a>
+            <a ng-class="setsorhStyle4(1)" class="hide_a">小球</a>
+            <a ng-bind="race.fuOdds" class="ng-binding">1.78</a>
+        </div>
+        <!-- <div>{{race.matchStatus}}</div> -->
+        <span ng-class="setHitStyle(1)" ng-bind="race.isHit" class="adjust_w ng-binding proj_1">赢</span>
+        <!-- <span ng-class="setHitStyle(1)" ng-bind="race.isHit" class="adjust_w ng-binding proj_2">赢</span>
+        <span ng-class="setHitStyle(1)" ng-bind="race.isHit" class="adjust_w ng-binding proj_3">赢</span> -->
+    </dd>
+</dl>
+<dt class="titl_cell2">推荐理由</dt>
+<dd>
+    <div class="add_block ng-binding" style="word-break:break-all;word-wrap:break-word;">曼城虽然赛季中期经历低迷，不过球队目前已经3连胜本场赢球将杀到英超第二。主队伯恩茅斯目前少赛1轮离降级区还有6分的差距压力不大，球队近期已经6轮不胜状态低迷。本场比赛受一球/球半可谓是历史性的深盘。加上双方历史交锋中，曼城4胜1平占据绝对的优势，心理方面占据上风。女王看好曼城赢球赢盘。</div>
+</dd>
+<script src="js/jquery.js" type="text/javascript"></script>
+</body>
+	
+</html>

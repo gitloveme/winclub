@@ -5,38 +5,6 @@
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>专家详情</title>
 <link rel="stylesheet" href="css/style.css"> 
-<style>
-.cap_cont span, .star_box {
-	float: right;
-	line-height: 22px;
-	position: absolute;
-	top: 1rem;
-	right: 1px;
-}
-
-.temporary {
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 1rem;
-	margin-bottom: 1rem;
-	position: relative;
-	top: 0;
-	right: 0;
-}
-
-.color-gray {
-	color: #787878;
-}
-
-.tj_lim {
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	width: 10rem;
-}
-
-.data_no {
-	display: none;
-}
-</style>
  
 </head>
 
@@ -159,13 +127,13 @@
         </li>
     </ul>
 
-    <ul class="score_tab" id="catch_data">
+    <ul class="score_tab">
         <!-- 单关 -->
 
-        <li class="ng-scope">
+        <li>
 			<div id="expertsBox"></div>
             <!-- <div infinite-scroll="demo.nextPage()" infinite-scroll-disabled="demo.busy" infinite-scroll-distance="1">
-                <div class="temporary ng-scope">
+                <div class="temporary">
                     <div class="ball_detail">
                         <a>
                             <div class="ball_time ball_time2">
@@ -285,7 +253,7 @@ $(function (){
     var expertId=getQueryString("expertid") || localStorage.getItem("expertId");
     var defaultOption={expertid:expertId,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条,type:类型(1:北京单场  2:胜负玩法 3:竞彩玩法)*/
     var loadingSart = true;
-    var thisTypeLoad=true;
+    var noLoadAll=false;
     function loadPlayType(op,change){
         loadingSart=false;
         defaultOption=$.extend(defaultOption,op);
@@ -299,19 +267,24 @@ $(function (){
                 loadingSart=true;
                 if(data.status==200){
                     var list=data.data;
-
+                    if(defaultOption.page_index*defaultOption.page_num >= parseInt(data.records)) {
+                        noLoadAll=false;
+                    }else{
+                        noLoadAll=true;
+                    }
                     var typeName=["北京单场","北京单场","胜负玩法","竞彩玩法"];
                     var weekday=["周日","周一","周二","周三","周四","周五","周六"];
                     var recommendhtml='';
-                     if(list==null || list.length==0){
+                    if(list==null || list.length==0){
                         recommendhtml='<li class="nothing">没有更多数据啦</li>';
-                        thisTypeLoad=false;
+
                     }else{
                         for(var i=0;i<list.length;i++){
                             var type=defaultOption.type || 1;
                             var overdate=list[i].begin_match_time?list[i].begin_match_time.substring(5,16) : "时间未知";
                             var createdate=list[i].create_time.substring(5,16) || "";
-                            var date=new Date(list[i].begin_match_time);
+                            var beginTime=$.trim(list[i].begin_match_time).substring(0,10);
+                            var date=new Date(beginTime);
                             var day=weekday[date.getDay()];
                             var title=list[i].title || "对阵双方描述";
                             var group=list[i].match_group || "小组";
@@ -396,7 +369,7 @@ $(function (){
     $(window).scroll(function (){
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
         if($(document).height()-10 <= top){
-            if(loadingSart && thisTypeLoad){ 
+            if(loadingSart && noLoadAll){ 
                 loadingSart=false;
                 var index=$(".ball-obj").find(".current_tab").index()+1;
                 var pageNum=defaultOption.page_index+1;
