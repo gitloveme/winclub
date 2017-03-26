@@ -16,9 +16,9 @@
     </div>
 </div>
     <ul class="ball-obj ball_thr">
-        <li class="active">北京单场</li>
-        <li>胜负玩法</li>
-        <li>竞彩玩法</li>
+        <li class="active" type="1" style="width:50%;">北京单场</li>
+        <!-- <li type="2">胜负玩法</li> -->
+        <li type="3" style="width:50%;">竞彩玩法</li>
     </ul>     
     <ul class="add_bg2" id="allexpert">
      <!--                         
@@ -46,6 +46,7 @@ $(function (){
     var noLoadAll=false;
     function loadAllExpert(op,change){
         defaultOption=$.extend(defaultOption,op);
+        defaultOption.timer=new Date().getTime();
         $.ajax({
             type:"get",
             url:"http://h5.wingoalclub.com/zucai/inf/expertRecommend",
@@ -54,10 +55,6 @@ $(function (){
             error:function (){loadingSart=true;},
             success:function (data){
                 loadingSart=true;
-                /*
-                data={"status":"200","error":null,"data":[{"imageSrc":"http://www.wingoalclub.com/dist/avatars/20161012101817-60.jpg","nickname":"杨涛","expertid":"44","recommendid":"10103","title":"巴甲  累西体育对阵克鲁塞罗","begin_match_time":"2016-11-17 07:45:00","home_team":"累西腓","guest_team":"克鲁塞罗","content":"推荐\n\n\n\n\n\n\n31","create_time":"2016-11-16 21:58:09","is_hit":"未荐中","price":"50.00"}],"records":"22","objectNode":{},"arrayNode":[]}
-
-                 */
                 if(data.status==200){
                     var list=data.data;
                     if(defaultOption.page_index*defaultOption.page_num >= parseInt(data.records)) {
@@ -99,7 +96,7 @@ $(function (){
         var that=$(this);
         if(that.hasClass("active")) return false;
         that.addClass("active").siblings().removeClass("active");
-        loadAllExpert({page_index:1,type:that.index()+1},1);
+        loadAllExpert({page_index:1,type:that.attr("type")},1);
     });
     $("#allexpert").on("click",".expert_intr",function (){
 		jumpExpert($(this));

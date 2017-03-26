@@ -71,7 +71,7 @@ $(function (){
 			$.ajax({
 				type:"get",
 				url:"http://h5.wingoalclub.com/zucai/inf/registerUser",
-				data:{username:username,mail:mail,passwd:passwd,confimPasswd:confimPasswd,phone:phone,verifyCode:verifyCode,t:new Date().getTime()},
+				data:{username:username,mail:mail,passwd:passwd,confimPasswd:confimPasswd,phone:phone,verifyCode:verifyCode,timer:new Date().getTime()},
 				dataType:"json",
 				error:function (){alert("注册出错啦！请您重试");submitIng=false;},
 				success:function (data){

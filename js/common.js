@@ -1,13 +1,14 @@
 function openLink(href){
 	if(localStorage.getItem("userLogin") != "login"){
 		alert("请先登录");
-		location.href="login.html";
+		location.href="/login.html";
 	}
 	location.href=href;
 }
-function getQueryString(name) {
+function getQueryString(name,str) {
+    str=str|| decodeURIComponent(window.location.search);
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-    var r = window.location.search.substr(1).match(reg);
+    var r = str.substr(1).match(reg);
     if (r != null) {
         return unescape(r[2]);
     }
@@ -31,7 +32,7 @@ function buyLotterys(recommendId,payType){
     $.ajax({
         type:"get",
         url:"http://h5.wingoalclub.com/zucai/inf/buy",
-        data:{recommendid:recommendId,payType:payType},
+        data:{recommendid:recommendId,payType:payType,timer:new Date().getTime()},
         dataType:"json",
         error:function (){alert("购买失败")},
         success:function (data){
@@ -44,6 +45,31 @@ function buyLotterys(recommendId,payType){
         }
     });
 }
+/*微信支付*/
+function weChatPay(backTitle,recommendid,price){
+    if(localStorage.getItem("userLogin") != "login"){
+            location.href="/login.html";
+            return false;
+        }
+        var backUrl=encodeURIComponent('http://h5.wingoalclub.com/pay/pay.html');
+        //var backUrl=encodeURIComponent('http://h5.wingoalclub.com/pay/pay.html');
+        var backcontent=backTitle+"string"+recommendid+"string"+price;
+        location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa223d1531ef58b9e&redirect_uri="+backUrl+"&response_type=code&scope=snsapi_base&state="+backcontent+"#wechat_redirect";
+}
+$.ajax({
+    type:"get",
+    url:"http://h5.wingoalclub.com/zucai/inf/isUserLogin",
+    data:{timer:new Date().getTime()},
+    dataType:"json",
+    success:function (data){
+        if(data && data.status ==200 && data.error == null){
+            console.log("用户登录");
+            localStorage.setItem("userLogin","login");
+        }else{
+            localStorage.removeItem("userLogin");
+        }
+    }
+});
 $(function (){
     var loadDom=document.getElementById("loading");
     loadDom.setAttribute("class","outloading");
@@ -51,19 +77,6 @@ $(function (){
         document.body.removeChild(loadDom);
     },500);
 	//判断用户是否登录
-   if(localStorage.getItem("userLogin") != "login"){
-        $.ajax({
-            type:"get",
-            url:"http://h5.wingoalclub.com/zucai/inf/isUserLogin",
-            data:{},
-            dataType:"json",
-            success:function (data){
-                if(data && data.status ==200 && data.error == null){
-                    console.log("用户登录");
-                    localStorage.setItem("userLogin","login");
-                }
-            }
-        });
-   }
+    
 	
 });

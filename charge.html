@@ -62,7 +62,7 @@ $(function (){
 		$.ajax({
 	        type:"get",
 	        url:"http://h5.wingoalclub.com/zucai/inf/recharge",
-	        data:{money:chargevalue,payType:2},
+	        data:{money:chargevalue,payType:2,timer:new Date().getTime()},
 	        dataType:"json",
 	        error:function (){alert("充值失败")},
 	        success:function (data){

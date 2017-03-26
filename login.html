@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>登录</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?t=2">
 </head>
 <style>
     body {
@@ -27,14 +27,19 @@
             <div class="reg_btn reg_btn2 submit_login">登录</div>
 
             <a href="register.html" class="regnow"><span>立即注册</span></a>
-            <a href="reset.html" class="fopsd"><span>忘记密码?</span></a>
+            <!-- <a href="reset.html" class="fopsd"><span>忘记密码?</span></a> -->
+            <!-- <a href="reset.html" class="fopsd"><span>忘记密码?</span></a> -->
         </div>
 
     </dl>
 </div>
 <script src="js/jquery.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 $(function (){
+    if(localStorage.getItem("userLogin") == "login"){
+        location.href="http://h5.wingoalclub.com";
+    }
     var form = $(".regist_list");
     function beforeSubmitLogin(){
         if($.trim(form.find(".username").val())==""){
@@ -50,8 +55,11 @@ $(function (){
         return true;
     }
     $(".submit_login").click(function (){
-        
+        if($(this).attr("type")=="ing"){
+            return false;
+        }
         if(beforeSubmitLogin()){
+            $(this).html("登录中...").attr("type","ing");
             var passwd=$.trim(form.find(".password").val());
             var verifyCode=$.trim(form.find(".randnuber").val());
             var username=$.trim(form.find(".username").val());
@@ -63,8 +71,19 @@ $(function (){
                 error:function (){alert("登录出错啦！请您重试");},
                 success:function (data){
                     if(data && data.status == 200){
-                        location.href="http://"+location.host;
-                    }else{
+                        localStorage.setItem("userLogin","login");
+                        var refer=location.search.split("refer=");
+                        if(refer !=null && refer!="" && refer.length==2){
+                            //console.log(decodeURIComponent(refer[1]));
+                            location.href=decodeURIComponent(refer[1]);
+                        }else{
+                            location.href="http://"+location.host;
+                        }
+                        
+                    }
+                    else{
+                        $(".submit_login").html("登录").attr("type","login");;
+                        $(".randimg").click();
                         var errormsg=data.error || "出现未知错误";
                         alert(errormsg);
                     }

@@ -31,10 +31,10 @@
   </dd> -->
   <dd>昵称：<input type="text" placeholder="昵称" class="nickname"/></dd>
   <dd>真实姓名：<input type="text" placeholder="真实姓名" class="realname"/></dd>
-  <dd>证件类型：<select class="cardtype"><option value="身份证">身份证</option><option value="户口簿">户口簿</option><option value="护照">护照</option><option value="军官证">军官证</option><option value="士兵证">士兵证</option><option value="警官证">警官证</option><option value="其他证件">其他证件</option></select></dd>
+  <dd>证件类型：<select class="cardtype"><option value="1">身份证</option><option value="2">军官证</option></select></dd>
   <dd>证件号：<input type="text" placeholder="输入证件号" class="cardno"/></dd>
   <dd>QQ：<input type="number" placeholder="输入QQ号" class="qq"/></dd>
-  <dd>性别：<select class="sex"><option value="男">男</option><option value="女">女</option></select></dd>
+  <dd>性别：<select class="sex"><option value="1">男</option><option value="2">女</option><option value="3">保密</option></select></dd>
   <dd>联系地址：<input type="text" placeholder="输入地址" class="address"/></dd>
   <dd>邮编：<input type="number" placeholder="输入邮编" class="postcode"/></dd>
   <dd>个人简介：<textarea placeholder="输入简介" class="selfintroduce"></textarea></dd>
@@ -82,7 +82,7 @@ $(function (){
     var userpostcode=$.trim($postcode.val());
     var userqq=$.trim($qq.val());
     var userselfIntroduce=$.trim($selfintroduce.val());
-    var option={realName:realname,nickName:username,cardType:usercardtype,cardNo:usercardno,sex:usersex,address:useraddress,postcode:userpostcode,qq:userqq,selfIntroduce:userselfIntroduce};
+    var option={realName:realname,nickName:username,cardType:usercardtype,cardNo:usercardno,sex:usersex,address:useraddress,postcode:userpostcode,qq:userqq,selfIntroduce:userselfIntroduce,timer:new Date().getTime()};
     $.ajax({
           type:"get",
           url:"http://h5.wingoalclub.com/zucai/inf/saveUser",

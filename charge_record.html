@@ -42,6 +42,7 @@ $(function (){
     var loadingSart = false;
     function loadDetail(op){
         defaultOption=$.extend(defaultOption,op);
+        defaultOption.timer=new Date().getTime();
         $.ajax({
             type:"get",
             url:"http://h5.wingoalclub.com/zucai/inf/accountDetail",

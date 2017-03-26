@@ -1414,6 +1414,7 @@ mark {
     overflow: hidden;
     border-right: 1px solid #ccc;
     box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
 }
 
 .ball-obj > li:last-child {
@@ -2916,7 +2917,7 @@ mark {
 }
 
 .regist_list .rand{background: url(../images/dun.png) no-repeat 16px center;background-color: #fff;background-size: 26px;display:flex;}
-.regist_list .randimg{height:26px;}
+.regist_list .randimg{height: 32px;    margin: -3px 0;}
 .regist_list .key{
     background: url(../images/key.png) no-repeat 16px center;
     background-color: #fff;

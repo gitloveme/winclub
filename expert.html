@@ -20,7 +20,7 @@
 <section class="expert_intr add_up">
 	<div class="ball_detail">
 		<div class="ball_time expert-bar">
-			<div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
+			<div class="expert_capital"><img  src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/userHeaderBigImage1473439890476mmexport1473438809716.jpg"></div>
 		</div>
 		<p class="expert_name"><em class="ng-binding">陈亦明</em>
 			<mark class="ng-binding">高级专家</mark>
@@ -115,14 +115,14 @@
         </ul>
     </div>
 -->
-    <ul class="ball-obj">
-        <li class="current_tab">北京单场
+    <ul class="ball-obj" style="border-bottom:none;">
+        <li class="current_tab" type="1" style="width:50%">北京单场
             <small class="goods_txt" style="display: inline;"></small>
         </li>
-        <li>胜负玩法
+        <!-- <li>胜负玩法
             <small class="goods_txt"></small>
-        </li>
-        <li>竞彩玩法
+        </li> -->
+        <li type="3" style="width:50%">竞彩玩法
             <small class="goods_txt"></small>
         </li>
     </ul>
@@ -247,7 +247,7 @@
     </ul>
 </div>
 <script src="js/jquery.js" type="text/javascript"></script>
-<script src="js/common.js" type="text/javascript"></script>
+<script src="js/common.js?t=201701" type="text/javascript"></script>
 <script type="text/javascript">
 $(function (){
     var expertId=getQueryString("expertid") || localStorage.getItem("expertId");
@@ -257,6 +257,7 @@ $(function (){
     function loadPlayType(op,change){
         loadingSart=false;
         defaultOption=$.extend(defaultOption,op);
+        defaultOption.timer=new Date().getTime();
         $.ajax({
             type:"get",
             url:"http://h5.wingoalclub.com/zucai/inf/expertHomePage",
@@ -279,15 +280,27 @@ $(function (){
                         for(var i=0;i<list.length;i++){
                             var type=defaultOption.type || 1;
                             var overdate=list[i].begin_match_time?list[i].begin_match_time.substring(5,16) : "时间未知";
+
                             var createdate=list[i].create_time.substring(5,16) || "";
                             var beginTime=$.trim(list[i].begin_match_time).substring(0,10);
                             var date=new Date(beginTime);
+                            if(type==3){
+                                overdate=list[i].create_time?list[i].create_time.substring(5,16) : "时间未知";
+                                date=new Date($.trim(list[i].create_time).substring(0,10));
+                            }
+                            var isBuy=list[i].status || 0;
                             var day=weekday[date.getDay()];
                             var title=list[i].title || "对阵双方描述";
                             var group=list[i].match_group || "小组";
                             var V=list[i].home_team || "主场";
                             var S=list[i].guest_team || "客场";
-                            recommendhtml+='<div class="temporary">';
+                            recommendhtml+='<div class="temporary" title="'+title+'" recommendid="'+list[i].recommendid+'"';
+                            if(isBuy==1 || list[i].is_hit){
+                                recommendhtml+=' type="'+type+'">'
+                            }else{
+                                recommendhtml+=' price="'+list[i].price+'">';
+                            }
+                            
                                 recommendhtml+='<div class="ball_detail">';
                                     recommendhtml+='<a>';
                                         recommendhtml+='<div class="ball_time ball_time2">';
@@ -295,10 +308,14 @@ $(function (){
                                             recommendhtml+='<p>'+day+'</p>';
                                             recommendhtml+='<p>'+overdate+'</p>';
                                         recommendhtml+='</div>';
-                                        list[i].is_hit?recommendhtml+='<p><strong class="main_race">'+V+" VS "+S+'</strong></p>':recommendhtml+='<p><strong class="main_race">'+V+" VS "+S+'</strong><span class="star_box ">'+list[i].price+'元</span></p>';
+                                        if(list[i].is_hit || isBuy==1){
+                                            recommendhtml+='<p><strong class="main_race">'+V+" VS "+S+'</strong></p>'
+                                        }else{
+                                            recommendhtml+='<p><strong class="main_race">'+V+" VS "+S+'</strong><span class="star_box ">'+list[i].price+'元</span></p>'
+                                        }
                                         recommendhtml+='<p class="ball_case color-gray">类型:<span>'+typeName[defaultOption.type]+'</span></p>';
-                                        recommendhtml+='<p class="intr_lim color-gray tj_lim ng-binding">推荐语：'+title+'</p>';
-                                        recommendhtml+='<p><small class="color-gray ng-binding">'+createdate+'</small></p>';
+                                        recommendhtml+='<p class="intr_lim color-gray tj_lim">推荐语：'+title+'</p>';
+                                        recommendhtml+='<p><small class="color-gray">'+createdate+'</small></p>';
                                     recommendhtml+='</a>';
                                 recommendhtml+='</div>';
                                 if(list[i].is_hit){
@@ -314,7 +331,12 @@ $(function (){
                                         recommendhtml+='<a><span class="proj_2">'+list[i].is_hit+'</span></a>';
                                     }
                                 }else{
-                                    recommendhtml+='<a><span class="proj_1">购买</span></a>';
+                                    if(isBuy==1){
+                                        recommendhtml+='<a><span class="proj_1">已购买</span></a>';
+                                    }else{
+                                       recommendhtml+='<a><span class="proj_1">购买</span></a>'; 
+                                    }
+                                    
                                 }
                                 
                             recommendhtml+='</div>';  
@@ -334,8 +356,7 @@ $(function (){
         var t=$(this);
         if(t.hasClass("current_tab")) return false;
         t.addClass("current_tab").siblings("li").removeClass("current_tab");
-        var index=t.index()+1;
-        loadPlayType({type:index,page_index:1},1);
+        loadPlayType({type:t.attr("type"),page_index:1},1);
 
     });
 	function localExpertIntro(){
@@ -361,7 +382,23 @@ $(function (){
 	localExpertIntro();
     loadPlayType();
     
-
+    $("#expertsBox").delegate(".temporary","click",function (){
+        if(localStorage.getItem("userLogin") != "login"){
+            location.href="/login.html?refer="+encodeURIComponent(location.href);
+            return false;
+        }
+        var type=$(this).attr("type");
+        var recommendid=$(this).attr("recommendid");
+        if(type !== undefined){
+            var nickname=localStorage.getItem("expertName");
+            var picture=localStorage.getItem("expertImg");
+            location.href="/plan.html?type="+type+"&recommendid="+recommendid+"&nickname="+nickname+"&picture="+picture;
+            return false;
+        }
+        var backTitle=$(this).attr("title");
+        var money=$(this).attr("price");
+        weChatPay(backTitle,recommendid,money);
+    });
     $(window).scroll(function (){
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
         if($(document).height()-10 <= top){

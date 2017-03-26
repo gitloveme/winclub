@@ -21,9 +21,10 @@ $(function (){
 	var form = $(".regist_list");
 
 	$(".submit_modify").click(function (){
-		var oldPaswd=$trim(form.find(".oldpassw"));
-		var newPasswd=$trim(form.find(".newpassw"));
-		var confimPasswd=$trim(form.find(".repassw"));
+        if($(this).attr("type")=="ing") return false;
+		var oldPaswd=$.trim(form.find(".oldpassw").val());
+		var newPasswd=$.trim(form.find(".newpassw").val());
+		var confimPasswd=$.trim(form.find(".repassw").val());
 		if(oldPaswd == ""){
 			alert("请输入旧密码！");
 			return false;
@@ -36,17 +37,20 @@ $(function (){
 			alert("两次密码输入不一致！");
 			return false;
 		}
+        $(this).attr("type","ing").html("提交中...");
 		$.ajax({
             type:"get",
             url:"http://h5.wingoalclub.com/zucai/inf/modifyPasswd",
-            data:{oldPaswd:oldPaswd,newPasswd:newPasswd,confimPasswd:confimPasswd,t:new Date().getTime()},
+            data:{oldPaswd:oldPaswd,newPasswd:newPasswd,confimPasswd:confimPasswd,timer:new Date().getTime()},
             dataType:"json",
             error:function (){alert("修改出错啦！请您重试");},
             success:function (data){
                 if(data && data.status == 200){
+                    $(this).attr("type","succ").html("修改成功");
                 	alert("密码修改成功，请重新登录！")
                     location.href="login.html";
                 }else{
+                    $(this).attr("type","error").html("重新提交");
                     var errormsg=data.error || "出现未知错误";
                     alert(errormsg);
                 }

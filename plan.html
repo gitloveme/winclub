@@ -25,32 +25,37 @@
 		top:0;
 	}
 </style>
-<body>				
+<body>
+<div id="loading">
+    <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+    </div>
+</div>				
 <section id="add_white" class="add_white">
-    <div class="ball_detail">
-        <div class="ball_time expert-bar">
-            <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/20170106190506953.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/20170106190506953.jpg"></div>
-        </div>
-        <p class="expert_name"><em ng-bind="plan.nickName" class="ng-binding">高水女王</em><mark ng-bind="plan.expertTypeName" class="ng-binding">高级专家</mark></p>   
-        <p><span id="focus_status" class="expert_gz2"><i id="isFocusedStatusName">已关注</i></span></p>
-    </div>          
+    <!-- <div class="ball_detail">
+                 <div class="ball_time expert-bar">
+                     <div class="expert_capital"><img ng-src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/20170106190506953.jpg" src="https://baoying365.oss-cn-shanghai.aliyuncs.com/bycimg_header/20170106190506953.jpg"></div>
+                 </div>
+                 <p class="expert_name"><em ng-bind="plan.nickName" class="ng-binding">高水女王</em><mark ng-bind="plan.expertTypeName" class="ng-binding">高级专家</mark></p>   
+             </div>  -->         
 </section>
-<p class="titl_cell ng-binding" ng-bind="plan.planTypeName">竞彩单关</p>
+<p class="titl_cell">竞彩单关</p>
 <dl class="bg_obj ng-scope" ng-repeat="race in planDetail">
     <dd class="obj_cell obj_cell2">
-        <div>
-            <p class="aim_span ng-binding" ng-bind="race.matchTime">02-14 04:00</p>
-            <!-- <p><img ng-src="{{race.hTeamLogo}}"></p> -->
+        <!-- <div>
+            <p class="aim_span ng-binding">02-14 04:00</p>
             <a ng-bind="race.hnSimple" class="ng-binding">伯恩茅斯</a>
         </div>
         <div class="aim_div">
             <p ng-bind="race.lnSimple" class="ng-binding">英超</p>
             <small ng-bind="race.hsScore" class="ng-binding">0</small> <a ng-bind="race.sign" class="ng-binding"> : </a><small ng-bind="race.asScore" class="ng-binding">2</small>
         </div>      
-        <div ng-bind="race.anSimple" class="ng-binding">曼城</div>
+        <div ng-bind="race.anSimple" class="ng-binding">曼城</div> -->
     </dd>
     <dd class="obj_cell add_score">
-        <div class="obj_catch">
+        <!-- <div class="obj_catch">
             <a ng-class="setsorhStyle(1)" class="hide_c">竞彩</a>
             <a ng-class="setsorhStyle2(1)" ng-bind="plan.planTypeName" class="ng-binding hide_a">竞彩单关</a>
             <i ng-class="setplayStyle(2)" ng-bind="race.hand" class="ng-binding hide_c">+1</i>
@@ -71,17 +76,66 @@
             <a ng-class="setsorhStyle4(1)" class="hide_a">小球</a>
             <a ng-bind="race.fuOdds" class="ng-binding">1.78</a>
         </div>
-        <!-- <div>{{race.matchStatus}}</div> -->
-        <span ng-class="setHitStyle(1)" ng-bind="race.isHit" class="adjust_w ng-binding proj_1">赢</span>
+        <div>{{race.matchStatus}}</div>
+        <span ng-class="setHitStyle(1)" ng-bind="race.isHit" class="adjust_w ng-binding proj_1">赢</span> -->
         <!-- <span ng-class="setHitStyle(1)" ng-bind="race.isHit" class="adjust_w ng-binding proj_2">赢</span>
         <span ng-class="setHitStyle(1)" ng-bind="race.isHit" class="adjust_w ng-binding proj_3">赢</span> -->
     </dd>
 </dl>
 <dt class="titl_cell2">推荐理由</dt>
 <dd>
-    <div class="add_block ng-binding" style="word-break:break-all;word-wrap:break-word;">曼城虽然赛季中期经历低迷，不过球队目前已经3连胜本场赢球将杀到英超第二。主队伯恩茅斯目前少赛1轮离降级区还有6分的差距压力不大，球队近期已经6轮不胜状态低迷。本场比赛受一球/球半可谓是历史性的深盘。加上双方历史交锋中，曼城4胜1平占据绝对的优势，心理方面占据上风。女王看好曼城赢球赢盘。</div>
+    <div class="add_block" style="word-break:break-all;word-wrap:break-word;"></div>
 </dd>
 <script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/common.js?t=2017" type="text/javascript"></script>
+<script>
+$(function (){
+    var recommendId=getQueryString("recommendid");
+    var Type=getQueryString("type");
+    var typeName=["北京单场","北京单场","胜负玩法","竞彩玩法"];
+    $(".titl_cell").html(typeName[Type]);
+    var nickname=decodeURIComponent(getQueryString("nickname"));
+    var nickImg=getQueryString("picture");
+    var expertHtml='<div class="ball_detail"><div class="ball_time expert-bar"><div class="expert_capital"><img  src="'+nickImg+'"></div></div><p class="expert_name"><em>'+nickname+'</em><mark>高级专家</mark></p></div> ';
+    $("#add_white").html(expertHtml);
+    $.ajax({
+        type:"get",
+        url:"http://h5.wingoalclub.com/zucai/inf/recommendDetail",
+        data:{recommendid:recommendId,type:Type,timer:new Date().getTime()},
+        dataType:"json",
+        error:function (error){
+            var errormsg=error.error || "该推荐内容暂时无法获取，请您稍后重试！"
+            alert(errormsg);
+        },success:function (data){
+            if(data && data.status == 200){
+                var obj=data.data;
+                $(".add_block").html(obj.content);
+                var beginTime=$.trim(obj.begin_match_time).substring(0,10);
+                var date=new Date(beginTime);
+                var d=date.getDay();
+                var objCellhtml='<div>'+
+                                    '<p class="aim_span">'+obj.begin_match_time.substring(5,16)+'</p>'+
+                                    '<a>'+obj.home_team+'</a>'+
+                                '</div>'+
+                                '<div class="aim_div">'+
+                                '<p>'+obj.match_group+'</p>'+
+                                '<small class="color3" style="padding:2px 5px;">'+obj.result+'</small>'+
+                                '</div>'+     
+                                '<div>'+obj.guest_team+'</div>'
+                $(".obj_cell2").html(objCellhtml);
+                $(".titl_cell2").html(obj.title);
+                //<div class="ball_time"><small>'+weekday[d]+'</small><p>'+list[i].begin_match_time.substring(5,16)+'</p></div>
+
+            }else if(data.status=="001"){
+                location.href="/login.html?refer="+encodeURIComponent(location.href);
+            }else{
+                var errormsg=data.error || "该推荐内容暂时无法获取，请您稍后重试！"
+                alert(errormsg);
+            }
+        }
+    });
+});
+</script>
 </body>
 	
 </html>
