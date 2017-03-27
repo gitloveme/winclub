@@ -126,8 +126,6 @@ $(function (){
                 $(".titl_cell2").html(obj.title);
                 //<div class="ball_time"><small>'+weekday[d]+'</small><p>'+list[i].begin_match_time.substring(5,16)+'</p></div>
 
-            }else if(data.status=="001"){
-                location.href="/login.html?refer="+encodeURIComponent(location.href);
             }else{
                 var errormsg=data.error || "该推荐内容暂时无法获取，请您稍后重试！"
                 alert(errormsg);

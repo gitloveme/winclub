@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>忘记密码</title>
-<link rel="stylesheet" href="css/style.css">        
+<link rel="stylesheet" href="css/style.css">   
+<script>
+//微信直接返回首页
+location.href=location.origin;
+</script>      
 </head>
 <body>
 <dl class="regist_list regist_list2 add_top">			
@@ -16,10 +20,6 @@
 	</div>
 </dl>
 <script src="js/jquery.js" type="text/javascript"></script>
-<script>
-$(function (){
-	var form = $(".regist_list");
-});
-</script>
+
 </body>
 </html>

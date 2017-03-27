@@ -69,28 +69,12 @@
 <script>
 
 $(function (){
-    /*用户是否登录*/
-    /*$.ajax({
-        type:"get",
-        url:"http://h5.wingoalclub.com/zucai/inf/isUserLogin",
-        data:{},
-        dataType:"json",
-        error:function (){location.href="login.html";},
-        success:function (data){
-            if(data && data.status==200 && data.error == null){
-                $(".btn_loginOut").show();
-                loadUserinfo();
-            }else{
-                location.href="login.html";
-            }
-        }
-    });*/
-    if(localStorage.getItem("userLogin")!="login"){
+    /*if(localStorage.getItem("userLogin")!="login"){
         location.href="/login.html?refer="+encodeURIComponent(location.href);
     }else{
         $(".btn_loginOut").show();
         loadUserinfo();
-    }
+    }*/
     /*获取用户信息*/
     function loadUserinfo(){
        $.ajax({
@@ -109,25 +93,7 @@ $(function (){
                     var userIntroHtml='<div class="expert_cap"><a href="home-intro.html"><img src=""></a></div><p>'+userName+'</p><p><small>'+userIntro+'</small></p>';
                     $(".user_cap").empty().html(userIntroHtml);
                     $(".user_blance").empty().html(balance);
-
-                    /*
-                    {
-                        "userName":"用户名",
-                        "realName":"真实姓名"，
-                        "nickName":"昵称",
-                        "mail":"邮箱",
-                        "phone":"手机号码",
-                        "cardType":"证件类型",
-                        "cardNo":"证件号码",
-                        "sex":"性别",
-                        "address":"联系地址",
-                        "postcode":"邮编",
-                        "qq":"qq号码",
-                        "selfIntroduce":"个人简介",
-                        "winRate":"总胜率",
-                        "balances":"用户余额"
-                        }
-                     */
+                    
                     var realname=data.realName || "";
                     var uesemail=data.mail || "";
                     var userphone=data.phone || "";
@@ -154,8 +120,6 @@ $(function (){
                     localStorage.setItem("userselfIntroduce",userselfIntroduce);
                     localStorage.setItem("userwinRate",userwinRate);
 
-                }else if(data.status=="001"){
-                    location.href="/login.html?refer="+encodeURIComponent(location.href);
                 }else{
                     alert(data.error);
                 }
@@ -163,7 +127,7 @@ $(function (){
         }); 
     }
     
-    $(".btn_loginOut").click(function (){
+    /*$(".btn_loginOut").click(function (){
         $.ajax({
             type:"get",
             url:"http://h5.wingoalclub.com/zucai/inf/logout",
@@ -182,10 +146,7 @@ $(function (){
                 }
             }
         });
-    });
-    $(".go_charge").click(function (){
-        openLink($(this).attr("jumpsrc"));
-    });
+    });*/
 });
 </script>
 </body>

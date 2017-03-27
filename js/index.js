@@ -4,10 +4,6 @@ var mySwipe = new Swiper(".swiper-container",{
 	pagination:".swiper-pagination"
 });
 
-function getUserInfo(){/*获取用户登录态*/
-	
-}
-
 $(function (){    
     function loadExpert(op){/*专家推荐*/
         var defaultOption={role:2,type:1,page_index:1,page_num:10,timer:new Date().getTime()};/*默认北京专场，第一页每页10条*/;
@@ -81,10 +77,10 @@ $(function (){
                        
                     }
                     $("#recommendlist").empty().html(recommendhtml).delegate("dd","click",function (){  
-                            if(localStorage.getItem("userLogin") != "login"){
+                            /*if(localStorage.getItem("userLogin") != "login"){
                                 location.href="/login.html";
                                 return false;
-                            }
+                            }*/
                             var type=$(this).attr("type");
                             var recommendid=$(this).attr("recommendid");
                             if(type !== undefined){

@@ -365,28 +365,15 @@ $(function (){
 		var intro=localStorage.getItem("expertIntro");
 		var html='<div class="ball_detail"><div class="ball_time expert-bar"><div class="expert_capital"><img src="'+picture+'"></div></div><p class="expert_name"><em class="ng-binding">'+nickname+'</em><mark>高级专家</mark></p></div><p class="intr_cont2" style="margin-top:30px;"><span>专家介绍 : </span>'+intro+'</p>';
 		$(".expert_intr").empty().html(html);
-		/*
-		<div class="ball_detail">
-            <div class="ball_time expert-bar">
-                <div class="expert_capital"><img src=""></div>
-            </div>
-            <p class="expert_name"><em class="ng-binding">陈亦明</em>
-                <mark class="ng-binding">高级专家</mark>
-            </p><p><span id="focus_status" class="expert_gz"><i id="isFocusedStatusName">+关注</i></span></p>
-            <p class="ball_case"><em>总推荐数 : </em><span class="ml_current ng-binding"> 722</span></p>
-            <p class="ball_case"><em>粉丝 : </em><span class="ml_current ng-binding"> 316</span></p>
-        </div>
-        <p class="intr_cont2 ng-binding"><span>专家介绍 : </span>腾讯体育、乐视体育、暴风体育等足球解说嘉宾。前广东宏远队、成都五牛队主教练，是著名的足球战术大师。</p>
-		*/
 	}
 	localExpertIntro();
     loadPlayType();
     
     $("#expertsBox").delegate(".temporary","click",function (){
-        if(localStorage.getItem("userLogin") != "login"){
+        /*if(localStorage.getItem("userLogin") != "login"){
             location.href="/login.html?refer="+encodeURIComponent(location.href);
             return false;
-        }
+        }*/
         var type=$(this).attr("type");
         var recommendid=$(this).attr("recommendid");
         if(type !== undefined){

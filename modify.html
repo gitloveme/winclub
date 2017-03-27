@@ -48,7 +48,7 @@ $(function (){
                 if(data && data.status == 200){
                     $(this).attr("type","succ").html("修改成功");
                 	alert("密码修改成功，请重新登录！")
-                    location.href="login.html";
+                    //location.href="login.html";
                 }else{
                     $(this).attr("type","error").html("重新提交");
                     var errormsg=data.error || "出现未知错误";
