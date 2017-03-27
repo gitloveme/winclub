@@ -83,10 +83,9 @@ $(function (){
             data:{timer:new Date().getTime()},
             dataType:"json",
             success:function (d){
-                if(d && d.status==200){
-                    
+                if(d && d.status==200 && d.error == null){
                     var data=d.data;
-                    var userName=data.userName || "用户";
+                    var userName=data.nickName || "用户";
                     var userIntro=data.selfIntroduce || "每天赢彩多一点！";
                     var balance=data.balances;
 
@@ -94,31 +93,6 @@ $(function (){
                     $(".user_cap").empty().html(userIntroHtml);
                     $(".user_blance").empty().html(balance);
                     
-                    var realname=data.realName || "";
-                    var uesemail=data.mail || "";
-                    var userphone=data.phone || "";
-                    var usercardtype=data.cardType || "";
-                    var usercardno=data.cardNo || "";
-                    var usersex=data.sex || "";
-                    var useraddress=data.address || "";
-                    var userpostcode=data.postcode || "";
-                    var userqq=data.qq || "";
-                    var userselfIntroduce=data.selfIntroduce || "";
-                    var userwinRate=data.winRate || "";
-
-                    localStorage.setItem("username",userName);
-                    localStorage.setItem("userbalance",balance);
-                    localStorage.setItem("realname",realname);
-                    localStorage.setItem("uesemail",uesemail);
-                    localStorage.setItem("userphone",userphone);
-                    localStorage.setItem("usercardtype",usercardtype);
-                    localStorage.setItem("usercardno",usercardno);
-                    localStorage.setItem("usersex",usersex);
-                    localStorage.setItem("useraddress",useraddress);
-                    localStorage.setItem("userpostcode",userpostcode);
-                    localStorage.setItem("userqq",userqq);
-                    localStorage.setItem("userselfIntroduce",userselfIntroduce);
-                    localStorage.setItem("userwinRate",userwinRate);
 
                 }else{
                     alert(data.error);
@@ -126,7 +100,7 @@ $(function (){
             }
         }); 
     }
-    
+    loadUserinfo();
     /*$(".btn_loginOut").click(function (){
         $.ajax({
             type:"get",
