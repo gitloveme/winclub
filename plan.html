@@ -87,7 +87,7 @@
     <div class="add_block" style="word-break:break-all;word-wrap:break-word;"></div>
 </dd>
 <script src="js/jquery.js" type="text/javascript"></script>
-<script src="js/common.js?t=2017" type="text/javascript"></script>
+<script src="js/common.js?t=20170329" type="text/javascript"></script>
 <script>
 $(function (){
     var recommendId=getQueryString("recommendid");
@@ -105,7 +105,7 @@ $(function (){
         dataType:"json",
         error:function (error){
             var errormsg=error.error || "该推荐内容暂时无法获取，请您稍后重试！"
-            alert(errormsg);
+            console.error(errormsg);
         },success:function (data){
             if(data && data.status == 200){
                 var obj=data.data;
@@ -128,7 +128,7 @@ $(function (){
 
             }else{
                 var errormsg=data.error || "该推荐内容暂时无法获取，请您稍后重试！"
-                alert(errormsg);
+                console.error(errormsg);
             }
         }
     });

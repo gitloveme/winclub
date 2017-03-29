@@ -42,7 +42,6 @@ $.ajax({
     },
     success:function (data){
         if(data && data.status ==200 && data.error == null){
-            console.log("用户登录");
             localStorage.setItem("userLogin","login");
             if(localStorage.getItem("weChatLoginInfo")==null){
                 getCodeForWechat();
@@ -73,7 +72,7 @@ function getCodeForWechat(){
                 dataType:"json",
                 error:function (error){
                     var errormsg=error.error || "暂时无法登录，请您退出后重试!";
-                    alert(errormsg);
+                    console.error(errormsg);
                 },
                 success:function (data){
                     if(data && data.status ==200 && data.error == null){
@@ -81,7 +80,7 @@ function getCodeForWechat(){
                         localStorage.setItem("weChatLoginInfo",'{"userId":'+obj.userId+',"userName":'+obj.userName+'}');
                     }else{
                         var errormsg=data.error || "暂时无法登录，请您退出后重试!";
-                        alert(errormsg);
+                        console.error(errormsg);
                     }
                 }
             });          

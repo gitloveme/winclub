@@ -53,7 +53,7 @@
     
 
 <script src="js/jquery.js" type="text/javascript"></script>       
-<script src="js/common.js" type="text/javascript"></script> 
+<script src="js/common.js?t=20170329" type="text/javascript"></script> 
 <script>
 $(function (){
   function getUserInfo(){
@@ -63,7 +63,7 @@ $(function (){
         data:{timer:new Date().getTime()},
         dataType:"json",
         error:function (error){
-          alert("服务器太忙啦，您的个人信息暂时无法修改，请您稍后再来！");
+          console.error("服务器太忙啦，您的个人信息暂时无法修改，请您稍后再来！");
         },
         success:function (d){
             if(d && d.status==200 && d.error == null){
@@ -81,7 +81,7 @@ $(function (){
                     $(this).val(data[name]);
                 });
             }else{
-                alert(data.error);
+                console.error(data.error);
             }
         }
     }); 
@@ -106,14 +106,14 @@ $(function (){
           url:"http://h5.wingoalclub.com/zucai/inf/saveUser",
           data:option,
           dataType:"json",
-          error:function (){alert("保存个人信息出错");},
+          error:function (){console.error("保存个人信息出错");},
           success:function (data){
               if(data && data.status == 200 && data.error ==null){
                 alert("个人信息已保存");
                   location.href="/home.html";
               }else{
                   var errormsg=data.error || "出现未知错误";
-                  alert(errormsg);
+                  console.error(errormsg);
               }
           }
       });
