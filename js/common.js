@@ -10,6 +10,7 @@ function getQueryString(name,str) {
 
 /*微信支付*/
 function weChatPay(backTitle,recommendid,price,callbackurl){
+    callbackurl=callbackurl || "http://h5.wingoalclub.com";
     if(localStorage.getItem("userLogin") != "login"){
             location.href="/login.html";
             return false;

@@ -1,10 +1,30 @@
-/*轮播图*/
-var mySwipe = new Swiper(".swiper-container",{
-	autoplay:5000,
-	pagination:".swiper-pagination"
-});
 
-$(function (){    
+$(function (){  
+    /*首页轮播图*/
+    $.ajax({
+        type:"get",
+        url:"http://h5.wingoalclub.com/zucai/inf/homepageScroll",
+        data:{timer:new Date().getTime()},
+        dataType:"json",
+        error:function (){
+            loadExpert();
+        },
+        success:function (data){
+            loadExpert();
+            if(data && data.status==200 && data.error==null){
+                var list=data.data;
+                var html='';
+                for(var i=0;i<list.length;i++){
+                    html+='<div class="swiper-slide"><a href="'+list[i].url+'"><img src="'+list[i].image+'"></a></div>';
+                }
+                $(".swiper-wrapper").eq(0).empty().html(html);
+                var mySwipe = new Swiper(".swiper-container",{
+                    autoplay:5000,
+                    pagination:".swiper-pagination"
+                });
+            }
+        }
+    });  
     function loadExpert(op){/*专家推荐*/
         var defaultOption={role:2,type:1,page_index:1,page_num:10,timer:new Date().getTime()};/*默认北京专场，第一页每页10条*/;
         var option=$.extend(defaultOption,op);
@@ -18,7 +38,7 @@ $(function (){
             },
             success:function (data){
                 loadProficient();
-                if(data && data.status==200){
+                if(data && data.status==200 && data.error==null){
                     var list=data.data;
                     var experthtml="";
                     for(var i=0;i<list.length;i++){
@@ -108,7 +128,7 @@ $(function (){
             }
         });
     }
-    loadExpert();
+    
     
     $(window).delegate(".jumpexpert","click",function (event){
         event.stopPropagation();
