@@ -384,7 +384,7 @@ $(function (){
         }
         var backTitle=$(this).attr("title");
         var money=$(this).attr("price");
-        weChatPay(backTitle,recommendid,money);
+        weChatPay(backTitle,recommendid,money,encodeURIComponent(location.href));
     });
     $(window).scroll(function (){
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 

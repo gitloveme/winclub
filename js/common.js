@@ -9,14 +9,15 @@ function getQueryString(name,str) {
 }
 
 /*微信支付*/
-function weChatPay(backTitle,recommendid,price){
+function weChatPay(backTitle,recommendid,price,callbackurl){
     if(localStorage.getItem("userLogin") != "login"){
             location.href="/login.html";
             return false;
         }
         var backUrl=encodeURIComponent('http://h5.wingoalclub.com/pay/pay.html');
+
         //var backUrl=encodeURIComponent('http://h5.wingoalclub.com/pay/pay.html');
-        var backcontent=backTitle+"string"+recommendid+"string"+price;
+        var backcontent=backTitle+"string"+recommendid+"string"+price+"string"+callbackurl;
         location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa223d1531ef58b9e&redirect_uri="+backUrl+"&response_type=code&scope=snsapi_base&state="+backcontent+"#wechat_redirect";
 }
 function jumpExpert(that){

@@ -91,7 +91,7 @@ $(function (){
                             }
                             var backTitle=$(this).attr("title");
                             var money=$(this).attr("price");
-                            weChatPay(backTitle,recommendid,money);
+                            weChatPay(backTitle,recommendid,money,encodeURIComponent(location.href));
                         }).delegate(".gotoexpert","click",function (event){
                             event.stopPropagation();
                             var nickname=$(this).attr("expertname");
