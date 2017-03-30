@@ -116,15 +116,16 @@
     </div>
 -->
     <ul class="ball-obj" style="border-bottom:none;">
-        <li class="current_tab" type="1" style="width:50%">北京单场
-            <small class="goods_txt" style="display: inline;"></small>
+        <li class="current_tab" type="3" style="width:50%">竞彩玩法
+            <!-- <small class="goods_txt" style="display: inline;"></small> -->
+        </li>
+        <li type="1" style="width:50%">北京单场
+            <!-- <small class="goods_txt" ></small> -->
         </li>
         <!-- <li>胜负玩法
             <small class="goods_txt"></small>
         </li> -->
-        <li type="3" style="width:50%">竞彩玩法
-            <small class="goods_txt"></small>
-        </li>
+        
     </ul>
 
     <ul class="score_tab">
@@ -251,7 +252,7 @@
 <script type="text/javascript">
 $(function (){
     var expertId=getQueryString("expertid") || localStorage.getItem("expertId");
-    var defaultOption={expertid:expertId,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条,type:类型(1:北京单场  2:胜负玩法 3:竞彩玩法)*/
+    var defaultOption={expertid:expertId,type:3,page_index:1,page_num:10};/*默认北京专场，第一页每页10条,type:类型(1:北京单场  2:胜负玩法 3:竞彩玩法)*/
     var loadingSart = true;
     var noLoadAll=false;
     function loadPlayType(op,change){

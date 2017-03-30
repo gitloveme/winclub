@@ -37,7 +37,7 @@
 <script src="js/common.js?t=2017032902" type="text/javascript"></script>
 <script type="text/javascript">
 $(function (){
-    var defaultOption={role:2,type:3,page_index:1,page_num:10};/*默认北京专场，第一页每页10条*/
+    var defaultOption={role:"1,2",type:3,page_index:1,page_num:10};/*默认北京专场，第一页每页10条*/
     var loadingSart = true;
     var noLoadAll=false;
 /////
@@ -67,7 +67,7 @@ $(function (){
                         recommendhtml='<dd class="nothing">没有更多数据啦</dd>'
                     }else{
                         for(var i=0;i<list.length;i++){
-                            var type=defaultOption.type || 1;
+                            var type=list[i].type || "1";
                             var datatime=list[i].begin_match_time || list[i].create_time;
                             var beginTime=$.trim(datatime).substring(0,10);
                             
