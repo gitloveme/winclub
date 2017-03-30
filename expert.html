@@ -296,9 +296,9 @@ $(function (){
                             var S=list[i].guest_team || "客场";
                             recommendhtml+='<div class="temporary" title="'+title+'" recommendid="'+list[i].recommendid+'"';
                             if(isBuy==1 || list[i].is_hit){
-                                recommendhtml+=' type="'+type+'">'
+                                recommendhtml+=' type="'+type+'" jump="jump">';
                             }else{
-                                recommendhtml+=' price="'+list[i].price+'">';
+                                recommendhtml+=' price="'+list[i].price+'" type="'+type+'">';
                             }
                             
                                 recommendhtml+='<div class="ball_detail">';
@@ -370,21 +370,19 @@ $(function (){
     loadPlayType();
     
     $("#expertsBox").delegate(".temporary","click",function (){
-        /*if(localStorage.getItem("userLogin") != "login"){
-            location.href="/login.html?refer="+encodeURIComponent(location.href);
-            return false;
-        }*/
         var type=$(this).attr("type");
+        var jump=$(this).attr("jump");
         var recommendid=$(this).attr("recommendid");
-        if(type !== undefined){
-            var nickname=localStorage.getItem("expertName");
-            var picture=localStorage.getItem("expertImg");
+        var nickname=localStorage.getItem("expertName");
+        var picture=localStorage.getItem("expertImg");
+        if(jump !== undefined){
             location.href="/plan.html?type="+type+"&recommendid="+recommendid+"&nickname="+nickname+"&picture="+picture;
             return false;
         }
         var backTitle=$(this).attr("title");
         var money=$(this).attr("price");
-        weChatPay(backTitle,recommendid,money,encodeURIComponent(location.href));
+        var weChatcallback="http://h5.wingoalclub.com/plan.html?type="+type+"replacerecommendid="+recommendid+"replacenickname="+nickname+"replacepicture="+picture;
+        weChatPay(backTitle,recommendid,money,encodeURIComponent(weChatcallback));
     });
     $(window).scroll(function (){
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 

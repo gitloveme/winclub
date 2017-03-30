@@ -71,7 +71,7 @@ $(function (){
 	var title=allString[0];
 	var recommendId=allString[1];
 	var price=allString[2];
-	var callbackUrl=allString[3];
+	var callbackUrl=allString[3].replace(/replace/g,"&");
 	var weChatCode=getQueryString("code");
 
 	var weChatPay,orderId;
@@ -143,8 +143,8 @@ $(function (){
 		           		$(".bill_btn").hide().html("支付成功").attr("load","succ");
 		           		$(".paytips").html('恭喜您支付成功！<br><a href="http://h5.wingoalclub.com">返回首页</a>');
 		           		alert("恭喜您支付成功！");
-		           		//location.href=decodeURIComponent(callbackUrl);
-		           		window.history.go(-2);
+		           		location.href=decodeURIComponent(callbackUrl);
+		           		//window.history.go(-2);
 		           }else if(res.err_msg=="get_brand_wcpay_request:fail"){//支付失败
 		           		//alert("支付失败，失败原因："+res.err_desc);
 		           		$(".bill_btn").show().html("重新支付").attr("load","load");

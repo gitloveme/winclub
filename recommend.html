@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-<title>高手推荐</title>
+<title>专家推荐</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -16,9 +16,10 @@
     </div>
 </div>
 <ul class="ball-obj ball_thr">
-    <li class="active" type="1" style="width:50%;">北京单场</li>
+    <li class="active" type="3" style="width:50%;">竞彩玩法</li>
+    <li type="1" style="width:50%;">北京单场</li>
     <!-- <li type="2">胜负玩法</li> -->
-    <li type="3" style="width:50%;">竞彩玩法</li>
+    
 </ul>
 <div class="add_bg2">
     <dl class="hot_box hot_obj" id="recommendlist">
@@ -27,16 +28,16 @@
 </div>
 
 <ul class="foot_nav">
-    <li class="index"><a href="index.html">首页</a></li>
+    <li class="index" style="margin-left:10%;margin-right:15%;"><a href="index.html">首页</a></li>
     <li class="recommend active"><a>推荐</a></li>
     <li class="score" style="display: none;"><a href="race-live.html">比分</a></li>
-    <li class="home"><a href="home.html">我的</a></li>
+    <li class="home" style="display: none;"><a href="home.html">我的</a></li>
 </ul>
 <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/common.js?t=2017032902" type="text/javascript"></script>
 <script type="text/javascript">
 $(function (){
-    var defaultOption={role:3,type:1,page_index:1,page_num:10};/*默认北京专场，第一页每页10条*/
+    var defaultOption={role:2,type:3,page_index:1,page_num:10};/*默认北京专场，第一页每页10条*/
     var loadingSart = true;
     var noLoadAll=false;
 /////
@@ -48,10 +49,12 @@ $(function (){
             url:"http://h5.wingoalclub.com/zucai/inf/expertRecommend",
             data:defaultOption,
             dataType:"json",
+            error:function (){loadingSart = true;},
             success:function (data){
+                loadingSart = true;
                 if(data.status==200){
                     var list=data.data;
-                    if(defaultOption.page_index*defaultOption.page_num >= parseInt(data.records)) {
+                    if((defaultOption.page_index-1)*defaultOption.page_num >= parseInt(data.records)) {
                         noLoadAll=false;
                     }else{
                         noLoadAll=true;
@@ -65,7 +68,8 @@ $(function (){
                     }else{
                         for(var i=0;i<list.length;i++){
                             var type=defaultOption.type || 1;
-                            var beginTime=$.trim(list[i].begin_match_time).substring(0,10);
+                            var datatime=list[i].begin_match_time || list[i].create_time;
+                            var beginTime=$.trim(datatime).substring(0,10);
                             
                             var isBuy=list[i].status || 0;
                             var date=new Date(beginTime);
@@ -73,15 +77,15 @@ $(function (){
                             var isHit=list[i].is_hit;
                             if(isBuy==1 || isHit){
                                 if(isHit){
-                                    recommendhtml+='<dd expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'" type="'+type+'"><section class="expert_case"><a class="gotoexpert" expertid="'+list[i].expertid+'" expertimg="'+list[i].imageSrc+'" expertname="'+list[i].nickname+'" expertintro="'+list[i].content+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont jumpexpert" expertid="'+list[i].expertid+'"><em>'+list[i].nickname+'</em><mark>高级专家</mark></div></section><section class="ball_detail"><div class="ball_time"><small>'+weekday[d]+'</small><p>'+list[i].begin_match_time.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong></p><p class="ball_case txt_contr2"><span>类型：<a>'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a>'+list[i].content+'</a></p><span class="tag">'+isHit+'</span></section></dd>';
+                                    recommendhtml+='<dd expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'" type="'+type+'" jump="jump"><section class="expert_case"><a class="gotoexpert" expertid="'+list[i].expertid+'" expertimg="'+list[i].imageSrc+'" expertname="'+list[i].nickname+'" expertintro="'+list[i].content+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont jumpexpert" expertid="'+list[i].expertid+'"><em>'+list[i].nickname+'</em><mark>专家</mark><span class="more_icon">更多</span></div></section><section class="ball_detail"><div class="ball_time"><small>'+weekday[d]+'</small><p>'+datatime.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong></p><p class="ball_case txt_contr2"><span>类型：<a>'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a>'+list[i].content+'</a></p><span class="tag">'+isHit+'</span></section></dd>';
 
                                 }else{
-                                    recommendhtml+='<dd expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'" type="'+type+'"><section class="expert_case"><a class="gotoexpert" expertid="'+list[i].expertid+'" expertimg="'+list[i].imageSrc+'" expertname="'+list[i].nickname+'" expertintro="'+list[i].content+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont jumpexpert" expertid="'+list[i].expertid+'"><em>'+list[i].nickname+'</em><mark>高级专家</mark></div></section><section class="ball_detail"><div class="ball_time"><small>'+weekday[d]+'</small><p>'+list[i].begin_match_time.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong></p><p class="ball_case txt_contr2"><span>类型：<a>'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a>'+list[i].content+'</a></p><span class="tag">已购买</span></section></dd>';
+                                    recommendhtml+='<dd expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'" type="'+type+'" jump="jump"><section class="expert_case"><a class="gotoexpert" expertid="'+list[i].expertid+'" expertimg="'+list[i].imageSrc+'" expertname="'+list[i].nickname+'" expertintro="'+list[i].content+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont jumpexpert" expertid="'+list[i].expertid+'"><em>'+list[i].nickname+'</em><mark>专家</mark><span class="more_icon">更多</span></div></section><section class="ball_detail"><div class="ball_time"><small>'+weekday[d]+'</small><p>'+datatime.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong></p><p class="ball_case txt_contr2"><span>类型：<a>'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a>'+list[i].content+'</a></p><span class="tag">已购买</span></section></dd>';
                                 }
                                 
                             }else{
                                 var price=list[i].price;
-                                recommendhtml+='<dd expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'" price="'+price+'"><section class="expert_case"><a class="gotoexpert" expertid="'+list[i].expertid+'" expertimg="'+list[i].imageSrc+'" expertname="'+list[i].nickname+'" expertintro="'+list[i].content+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont jumpexpert" expertid="'+list[i].expertid+'"><em>'+list[i].nickname+'</em><mark>高级专家</mark></div></section><section class="ball_detail"><div class="ball_time"><small>'+weekday[d]+'</small><p>'+list[i].begin_match_time.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong><span class="star_box" style="position: absolute;right:10px">￥<em>'+price+'</em></span></p><p class="ball_case txt_contr2"><span>类型：<a>'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a>'+list[i].content+'</a></p><span class="tag">购买</span></section></dd>';
+                                recommendhtml+='<dd expertid="'+list[i].expertid+'" recommendid="'+list[i].recommendid+'" title="'+list[i].title+'" price="'+price+'" type="'+type+'"><section class="expert_case"><a class="gotoexpert" expertid="'+list[i].expertid+'" expertimg="'+list[i].imageSrc+'" expertname="'+list[i].nickname+'" expertintro="'+list[i].content+'"><span class="head_cap"><img src="'+list[i].imageSrc+'"></span></a><div class="cap_cont jumpexpert" expertid="'+list[i].expertid+'"><em>'+list[i].nickname+'</em><mark>专家</mark><span class="more_icon">更多</span></div></section><section class="ball_detail"><div class="ball_time"><small>'+weekday[d]+'</small><p>'+datatime.substring(5,16)+'</p></div><p class="span_contr"><strong>'+list[i].title+'</strong><span class="star_box" style="position: absolute;right:10px">￥<em>'+price+'</em></span></p><p class="ball_case txt_contr2"><span>类型：<a>'+typeName[type]+'</a></span></p><p class="ball_case txt_contr2">推荐语:<a>'+list[i].content+'</a></p><span class="tag">购买</span></section></dd>';
                             }
                         }
                     }
@@ -102,23 +106,25 @@ $(function (){
         that.addClass("active").siblings().removeClass("active");
         loadProficient({page_index:1,type:that.attr("type")},1);
     });
-    $(window).on("click",".expert_intr",function (){
+    /*$("body").on("click",".expert_intr",function (){
         jumpExpert($(this));
     }).on("click",".payrecommend",function (){//支付
 
-    });
+    });*/
      $("#recommendlist").delegate("dd","click",function (){  
         var type=$(this).attr("type");
+        var jump=$(this).attr("jump");
         var recommendid=$(this).attr("recommendid");
-        if(type !== undefined){
-            var nickname=$(this).find(".gotoexpert").attr("expertname");
-            var picture=$(this).find(".gotoexpert").attr("expertimg");
+        var nickname=$(this).find(".gotoexpert").attr("expertname");
+        var picture=$(this).find(".gotoexpert").attr("expertimg");
+        if(jump !== undefined){
             location.href="/plan.html?type="+type+"&recommendid="+recommendid+"&nickname="+nickname+"&picture="+picture;
             return false;
         }
         var backTitle=$(this).attr("title");
         var money=$(this).attr("price");
-        weChatPay(backTitle,recommendid,money,encodeURIComponent(location.href));
+        var weChatcallback="http://h5.wingoalclub.com/plan.html?type="+type+"replacerecommendid="+recommendid+"replacenickname="+nickname+"replacepicture="+picture;
+        weChatPay(backTitle,recommendid,money,encodeURIComponent(weChatcallback));
     }).delegate(".gotoexpert","click",function (event){
         event.stopPropagation();
         var nickname=$(this).attr("expertname");
@@ -130,6 +136,9 @@ $(function (){
         localStorage.setItem("expertIntro",intro);
         location.href='/expert.html?expertid='+$(this).attr("expertid");
         return false;
+    }).delegate(".jumpexpert","click",function (event){
+        event.stopPropagation();
+        $(this).siblings(".gotoexpert").click();
     });
     $(window).scroll(function (){
         var top= parseFloat($(window).height()) + parseFloat($(window).scrollTop()); 
